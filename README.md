@@ -49,17 +49,22 @@ Instructions on how to get the Frontend Development server up and running.
 ```Shell
 cd proc1 && cd frontend
 ```
-
-2. Install the project dependencies
+2. Install Yarn
 
 ```Shell
-npm install
+npm install -g yarn
 ```
 
-3. Start the development server on localhost:3000
+3. Install the project dependencies
 
 ```Shell
-npm start
+yarn install
+```
+
+4. Start the development server on localhost:3000
+
+```Shell
+yarn start
 ```
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -70,11 +75,11 @@ npm start
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/markmacey/poc1.svg?style=for-the-badge
-[contributors-url]: https://github.com/markmacey/poc1/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/markmacey/poc1.svg?style=for-the-badge
-[forks-url]: https://github.com/markmacey/poc1/network/members
-[stars-shield]: https://img.shields.io/github/stars/markmacey/poc1.svg?style=for-the-badge
-[stars-url]: https://github.com/markmacey/poc1/stargazers
-[issues-shield]: https://img.shields.io/github/issues/markmacey/poc1.svg?style=for-the-badge
-[issues-url]: https://github.com/markmacey/poc1/issues
+[contributors-shield]: https://img.shields.io/github/contributors/Mark-Shaun/poc1.svg?style=for-the-badge
+[contributors-url]: https://github.com/Mark-Shaun/poc1/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Mark-Shaun/poc1.svg?style=for-the-badge
+[forks-url]: https://github.com/Mark-Shaun/poc1/network/members
+[stars-shield]: https://img.shields.io/github/stars/Mark-Shaun/poc1.svg?style=for-the-badge
+[stars-url]: https://github.com/Mark-Shaun/poc1/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Mark-Shaun/poc1.svg?style=for-the-badge
+[issues-url]: https://github.com/Mark-Shaun/poc1/issues
