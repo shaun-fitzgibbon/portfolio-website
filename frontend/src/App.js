@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,8 +7,8 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1>
-          MARK & SHAUN'S{' '}
-          <span Style='color:#61dafb;'>
+          MARK & SHAUN&#39;S{' '}
+          <span style={{ color: '#61dafb' }}>
             <br />
             AWESOME APP
           </span>
