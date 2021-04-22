@@ -33,40 +33,35 @@ jobs:
 
       - name: Performing React tests if any defined
         run: yarn test
-        env:
-          CI: true # so that the test prompt doesn't show up
 
-      # - name: Running ESLint Linter
-      #   run: yarn eslint
-      #   working-directory: ./frontend
-      #   env:
-      #     CI: false
+      - name: Running ESLint Linter
+        run: yarn eslint
 
       - name: Save Code Linting Report JSON
-        # npm script for ESLint
-        # eslint --output-file eslint_report.json --format json src
-        # See https://eslint.org/docs/user-guide/command-line-interface#options
-        run: yarn run eslint:report
-        # Continue to the next step even if this fails
+        run: yarn eslint:report
         continue-on-error: true
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@1.1.3
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: './frontend/eslint_report.json'
+          report-json: './reports/eslint_report.json'
 
       - name: Upload ESLint report
         uses: actions/upload-artifact@v2
         with:
           name: eslint_report.json
-          path: ./frontend/eslint_report.json
+          path: ./reports/eslint_report.json
+
+      - name: Running Stylelint
+        run: yarn stylelint --if-present
+        
+      - name: Running Prettier Code Formatter
+        run: yarn prettier --if-present
 
       - name: Performing React build
         run: yarn build --if-present
-        env:
-          CI: false # causes warnings to become errors, and there are tons of pa11y errors to fix
-
+        
       - name: Upload build files
         uses: actions/upload-artifact@main
         with:
