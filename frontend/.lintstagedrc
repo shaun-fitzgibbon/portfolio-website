@@ -1,0 +1,11 @@
+{
+  "src/**/*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write",
+    "test --watchAll=false --findRelatedTests --bail"
+  ],
+  "src/**/*.css": [
+    "stylelint --fix"
+  ],
+  "*.(js|html|css|md|json)": "prettier --write"
+}

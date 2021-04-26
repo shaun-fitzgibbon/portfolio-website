@@ -20,22 +20,11 @@
     "eslint:fix": "eslint ./src --fix",
     "eslint:report": "eslint --output-file ../reports/eslint_report.json --format json src",
     "prettier": "prettier -c \"src/**/*.(js|jsx|ts|tsx|css|scss)\"",
-    "prettier:fix": "prettier --write \"src/**/*.(js|jsx|ts|tsx|css|scss)\"",
+    "prettier:write": "prettier --write \"src/**/*.(js|jsx|ts|tsx|css|scss)\"",
     "stylelint": "stylelint \"src/**/*.css\"",
     "stylelint:fix": "stylelint \"src/**/*.css\" --fix",
     "stylelint-check": "stylelint-config-prettier-check",
     "prepare": "cd .. && husky install frontend/.husky"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "yarn eslint --fix",
-      "yarn prettier --write",
-      "yarn test --watchAll=false --findRelatedTests --bail"
-    ],
-    "src/**/*.css": [
-      "stylelint --fix"
-    ],
-    "*.(js|html|css|md)": "prettier --write"
   },
   "browserslist": {
     "production": [
