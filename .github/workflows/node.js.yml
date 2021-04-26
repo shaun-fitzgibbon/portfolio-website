@@ -44,8 +44,8 @@ jobs:
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@1.1.3
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          report-json: './reports/eslint_report.json'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "./reports/eslint_report.json"
 
       - name: Upload ESLint report
         uses: actions/upload-artifact@v2
@@ -54,16 +54,10 @@ jobs:
           path: ./reports/eslint_report.json
 
       - name: Running Stylelint
-        run: yarn stylelint --if-present
-        
+        run: yarn stylelint
+
       - name: Running Prettier Code Formatter
-        run: yarn prettier --if-present
+        run: yarn prettier
 
       - name: Performing React build
-        run: yarn build --if-present
-        
-      - name: Upload build files
-        uses: actions/upload-artifact@main
-        with:
-          name: build artifacts
-          path: frontend/build/
+        run: yarn build
