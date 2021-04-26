@@ -17,12 +17,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint ./src",
-    "eslint:fix": "eslint ./src --fix",
     "eslint:report": "eslint --output-file ../reports/eslint_report.json --format json src",
-    "prettier": "prettier -c \"src/**/*.(js|jsx|ts|tsx|css|scss)\"",
-    "prettier:write": "prettier --write \"src/**/*.(js|jsx|ts|tsx|css|scss)\"",
+    "prettier": "prettier --check .",
     "stylelint": "stylelint \"src/**/*.css\"",
-    "stylelint:fix": "stylelint \"src/**/*.css\" --fix",
     "stylelint-check": "stylelint-config-prettier-check",
     "prepare": "cd .. && husky install frontend/.husky"
   },
