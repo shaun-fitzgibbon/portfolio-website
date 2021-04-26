@@ -2,10 +2,10 @@
   "src/**/*.{js,jsx,ts,tsx}": [
     "eslint --fix",
     "prettier --write",
-    "test --watchAll=false --findRelatedTests --bail"
+    "yarn test --watchAll=false --findRelatedTests --bail"
   ],
-  "src/**/*.css": [
-    "stylelint --fix"
-  ],
-  "*.(js|html|css|md|json)": "prettier --write"
+  "src/**/*.css": "stylelint --fix",
+  ".*rc": "prettier --write --parser json",
+  "*.(js|jsx|ts|tsx|html|css|md|json|yaml|yml)": "prettier --write",
+  "../**/*.{md,yaml,yml}": "prettier --write"
 }
