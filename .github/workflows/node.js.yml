@@ -8,7 +8,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./frontend
+    working-directory: .
 
 jobs:
   build-test:
@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 17.x]
+        node-version: [16.x]
 
     steps:
       - name: Clone repository
@@ -27,37 +27,47 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
 
-      # - name: Installing node dependencies
-      #  run: yarn --frozen-lockfile
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      # - name: Performing React tests if any defined
-      #  run: yarn test
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
-     # - name: Running ESLint Linter
-     #   run: yarn eslint
+      - name: Installing dependencies
+        run: yarn install --immutable --immutable-cache --check-cache
 
-     # - name: Save Code Linting Report JSON
-     #   run: yarn eslint:report
-     #   continue-on-error: true
+      - name: Running ESLint Linter
+        run: yarn lint
 
-     # - name: Annotate Code Linting Results
-     #   uses: ataylorme/eslint-annotate-action@1.1.3
-     #   with:
-     #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
-     #     report-json: "./reports/eslint_report.json"
+      - name: Save Code Linting Report JSON
+        run: yarn eslint --output-file eslint_report.json --format json .
+        continue-on-error: true
 
-     # - name: Upload ESLint report
-     #   uses: actions/upload-artifact@v2
-     #   with:
-     #     name: eslint_report.json
-     #     path: ./reports/eslint_report.json
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@1.1.3
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          report-json: 'eslint_report.json'
 
-     # - name: Running Stylelint
-     #   run: yarn stylelint
+      - name: Upload ESLint report
+        uses: actions/upload-artifact@v2
+        with:
+          name: eslint_report.json
+          path: eslint_report.json
 
-     # - name: Running Prettier Code Formatter
-     #   run: yarn prettier
+      - name: Running Stylelint
+        run: yarn stylelint "**/*.(css|scss)"
 
-     # - name: Performing React build
-     #   run: yarn build
+      - name: Running Prettier Code Formatter
+        run: yarn prettier --ignore-unknown --check "**/*"
+
+      - name: Performing NextJS build
+        run: yarn build --debug

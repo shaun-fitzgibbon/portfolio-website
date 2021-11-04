@@ -1,4 +1,5 @@
 <!-- PROJECT SHIELDS -->
+
 [![Netlify][netlify-shield]][netlify-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -49,6 +50,7 @@ Instructions on how to get the Frontend Development server up and running.
 ```Shell
 cd proc1 && cd frontend
 ```
+
 2. Install Yarn
 
 ```Shell
@@ -74,8 +76,6 @@ yarn start
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-
-
 
 [netlify-shield]: https://img.shields.io/netlify/dbd09a0d-d257-4bf2-a355-279cc818e3e2?style=for-the-badge
 [netlify-url]: https://friendly-wiles-5536c0.netlify.app

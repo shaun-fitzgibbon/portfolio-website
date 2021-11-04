@@ -1,17 +1,29 @@
+const { ESLint } = require('eslint')
+
+const removeIgnoredFiles = async (files) => {
+  const eslint = new ESLint()
+  const isIgnored = await Promise.all(
+    files.map((file) => {
+      return eslint.isPathIgnored(file)
+    })
+  )
+  const filteredFiles = files.filter((_, i) => !isIgnored[i])
+  return filteredFiles.join(' ')
+}
+
 module.exports = {
   // Type check TypeScript files
-  '**/*.ts?(x)': () => 'yarn tsc -p tsconfig.json --pretty --noEmit',
+  '**/*.ts?(x)': () => 'yarn tsc --project tsconfig.json --pretty --noEmit',
 
-  // Lint then format TypeScript and JavaScript files
-  '**/*.(ts|tsx|js|jsx)': (filenames) => [
-    `yarn eslint --fix ${filenames.join(' ')}`,
-    //`yarn prettier --write ${filenames.join(' ')}`,
-  ],
+  // Lint TypeScript and JavaScript files
+  '**/*.(ts|tsx|js|jsx)': async (files) => {
+    const filesToLint = await removeIgnoredFiles(files)
+    return [`next lint --max-warnings=0 --fix ${filesToLint}`]
+  },
 
-  // Format MarkDown and JSON and YAML
-  // '**/*.(md|json|yaml|yml)': (filenames) =>
-  // `yarn prettier --write ${filenames.join(' ')}`,
+  // Lint Css and Sass
+  '**/*.(css|scss)': (filenames) => [`stylelint --fix ${filenames.join(' ')}`],
 
-  // Format Css and Sass
-  //'**/*.(css|scss)': (filenames) => `stylelint --fix ${filenames.join(' ')}`,
+  // Format any files PRETTIER supports
+  '*': 'prettier --ignore-unknown --write',
 }

@@ -2,4 +2,16 @@
 build
 coverage
 
-.yarn/*
+# Ignore NEXTJS:
+.next
+
+# Ignore NETLIFY:
+.netlify
+
+# Ignore YARN:
+.yarn
+
+# Ignore node_modules:
+node_modules
+
+eslint_report.json
