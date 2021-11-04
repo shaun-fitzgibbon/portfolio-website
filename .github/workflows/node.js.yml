@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 15.x]
+        node-version: [16.x, 17.x]
 
     steps:
       - name: Clone repository
@@ -28,36 +28,36 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Installing node dependencies
-        run: yarn --frozen-lockfile
+      # - name: Installing node dependencies
+      #  run: yarn --frozen-lockfile
 
-      - name: Performing React tests if any defined
-        run: yarn test
+      # - name: Performing React tests if any defined
+      #  run: yarn test
 
-      - name: Running ESLint Linter
-        run: yarn eslint
+     # - name: Running ESLint Linter
+     #   run: yarn eslint
 
-      - name: Save Code Linting Report JSON
-        run: yarn eslint:report
-        continue-on-error: true
+     # - name: Save Code Linting Report JSON
+     #   run: yarn eslint:report
+     #   continue-on-error: true
 
-      - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@1.1.3
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          report-json: "./reports/eslint_report.json"
+     # - name: Annotate Code Linting Results
+     #   uses: ataylorme/eslint-annotate-action@1.1.3
+     #   with:
+     #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
+     #     report-json: "./reports/eslint_report.json"
 
-      - name: Upload ESLint report
-        uses: actions/upload-artifact@v2
-        with:
-          name: eslint_report.json
-          path: ./reports/eslint_report.json
+     # - name: Upload ESLint report
+     #   uses: actions/upload-artifact@v2
+     #   with:
+     #     name: eslint_report.json
+     #     path: ./reports/eslint_report.json
 
-      - name: Running Stylelint
-        run: yarn stylelint
+     # - name: Running Stylelint
+     #   run: yarn stylelint
 
-      - name: Running Prettier Code Formatter
-        run: yarn prettier
+     # - name: Running Prettier Code Formatter
+     #   run: yarn prettier
 
-      - name: Performing React build
-        run: yarn build
+     # - name: Performing React build
+     #   run: yarn build
