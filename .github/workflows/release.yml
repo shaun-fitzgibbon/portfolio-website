@@ -1,8 +1,13 @@
 name: Releases & Changelog
+
 on:
   push:
     branches:
       - main
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
