@@ -4,27 +4,60 @@ on:
   push:
     branches:
       - main
+      
+env:
+  GH_TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
 
 jobs:
   changelog:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: 🔍 GH_TOKEN
+        if: env.GH_TOKEN == ''
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
+    
+      - name: 🤘 checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: main
+          token: ${{ env.GH_TOKEN }}
 
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.CHANGELOG_RELEASE }}
+          github-token:  ${{ env.GH_TOKEN }}
           git-message: 'chore(release): {version}'
 
       - name: Create Release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
+          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
         with:
           tag_name: ${{ steps.changelog.outputs.tag }}
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
+          
+          
+
+
+
+    steps:
+     
+     
+      - name: ⚙ changelog
+        uses: faberNovel/github-changelog-generator-action@master
+        with:
+          options: --token ${{ secrets.GITHUB_TOKEN }} --o changelog.md
+      - name: 🚀 changelog
+        run: |
+          git config --local user.name github-actions
+          git config --local user.email github-actions@github.com
+          git add changelog.md
+          git commit -m "🖉 Update changelog with ${GITHUB_REF#refs/*/}"
+          git push
