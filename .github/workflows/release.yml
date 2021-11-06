@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 env:
   GH_TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
 
@@ -15,10 +15,10 @@ jobs:
     steps:
       - name: 🔍 GH_TOKEN
         if: env.GH_TOKEN == ''
-        env: 
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
-    
+
       - name: 🤘 checkout
         uses: actions/checkout@v2
         with:
@@ -30,10 +30,10 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token:  ${{ env.GH_TOKEN }}
+          github-token: ${{ env.GH_TOKEN }}
           git-message: 'chore(release): {version}'
 
-      - name:  Create Release
+      - name: Create Release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
@@ -42,4 +42,3 @@ jobs:
           tag_name: ${{ steps.changelog.outputs.tag }}
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
-          
