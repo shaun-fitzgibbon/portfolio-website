@@ -15,3 +15,5 @@ coverage
 node_modules
 
 eslint_report.json
+
+CHANGELOG.md
