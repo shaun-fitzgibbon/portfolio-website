@@ -1,3 +1,12 @@
+## [0.1.3](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.2...v0.1.3) (2021-11-07)
+
+
+### Bug Fixes
+
+* correction to nextjs ([cf01257](https://github.com/Mark-Shaun/frontend-nextjs/commit/cf01257f85780923f403fe6bc20d515c91d471b2))
+
+
+
 ## [0.1.2](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.1...v0.1.2) (2021-11-07)
 
 
