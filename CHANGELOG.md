@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.1...v0.1.2) (2021-11-07)
+
+
+### Bug Fixes
+
+* update bump test ([d756822](https://github.com/Mark-Shaun/frontend-nextjs/commit/d756822b8927a7d36941bb205447e072640eb6e8))
+
+
+
 ## [0.1.1](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.0...v0.1.1) (2021-11-06)
 
 
