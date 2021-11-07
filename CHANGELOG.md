@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.3...v0.1.4) (2021-11-07)
+
+
+### Bug Fixes
+
+* test netlify deploy ([fbb6960](https://github.com/Mark-Shaun/frontend-nextjs/commit/fbb69602235363490f4a78aa5296762079ffaaf0))
+
+
+
 ## [0.1.3](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.2...v0.1.3) (2021-11-07)
 
 
