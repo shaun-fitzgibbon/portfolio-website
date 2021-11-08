@@ -22,10 +22,10 @@ jobs:
           cache-dependency-path: .yarn/cache
 
       - name: Check Versions
-        run: node --version
-      - run: yarn --version
-      - run: cwd
-
+        run: |
+          node --version
+          yarn --version
+      - run: pwd
       - name: Installing dependencies
         run: yarn install --immutable --check-cache
 
