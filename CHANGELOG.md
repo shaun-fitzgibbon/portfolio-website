@@ -1,3 +1,12 @@
+## [0.1.8](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.7...v0.1.8) (2021-11-08)
+
+
+### Bug Fixes
+
+* testing bump version ([f988fa4](https://github.com/Mark-Shaun/frontend-nextjs/commit/f988fa446780e46c004b7619ed26329736f8251f))
+
+
+
 ## [0.1.7](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.6...v0.1.7) (2021-11-07)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * test netlify deploy ([fbb6960](https://github.com/Mark-Shaun/frontend-nextjs/commit/fbb69602235363490f4a78aa5296762079ffaaf0))
-
-
-
-## [0.1.3](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.2...v0.1.3) (2021-11-07)
-
-
-### Bug Fixes
-
-* correction to nextjs ([cf01257](https://github.com/Mark-Shaun/frontend-nextjs/commit/cf01257f85780923f403fe6bc20d515c91d471b2))
 
 
 
