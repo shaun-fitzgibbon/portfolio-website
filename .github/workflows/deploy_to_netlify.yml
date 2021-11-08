@@ -21,26 +21,40 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: .yarn/cache
 
+      - name: Check Versions
+        run: node --version
+      - run: yarn --version
+      - run: cwd
+
       - name: Installing dependencies
         run: yarn install --immutable --check-cache
 
       - name: Performing NextJS build
-        run: yarn build --debug
+        run: yarn run build
 
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
-        with:
-          publish-dir: 'out'
-          production-branch: main
-          production-deploy: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: 'Deploy from GitHub Actions'
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-          netlify-config-path: ./netlify.toml
-          functions-dir: ./netlify/functions
+      - name: 🚀 Deploy to Netlify
+        id: deploy-netlify
+        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+        with:
+          args: deploy -m 'v${{ steps.package-version.outputs.current-version}} ・ ${{ github.head_ref }}'
+
+      #- name: Deploy to Netlify
+      #  uses: nwtgck/actions-netlify@v1.2
+      #  with:
+      #    publish-dir: 'out'
+      #    production-branch: main
+      #    production-deploy: true
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
+      #    deploy-message: 'Deploy from GitHub Actions'
+      #    enable-pull-request-comment: false
+      #    enable-commit-comment: true
+      #    overwrites-pull-request-comment: true
+      #    netlify-config-path: ./netlify.toml
+      #    functions-dir: ./netlify/functions
+      #  env:
+      #    NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #    NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #  timeout-minutes: 1
