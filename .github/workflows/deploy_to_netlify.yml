@@ -29,9 +29,6 @@ jobs:
       - name: Installing dependencies
         run: yarn install --immutable --check-cache
 
-      - name: Performing Netlify & NextJS build
-        run: netlify build
-
       - name: 🏗️ Performing Netlify & NextJS build
         uses: netlify/actions/cli@master
         env:
