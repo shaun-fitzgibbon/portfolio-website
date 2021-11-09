@@ -33,7 +33,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Running ESLint Linter
-        run: yarn lint
+        run: yarn lintclear
 
       - name: Save Code Linting Report JSON
         run: yarn eslint --output-file eslint_report.json --format json .
@@ -57,5 +57,31 @@ jobs:
       - name: Running Prettier Code Formatter
         run: yarn prettier --ignore-unknown --check "**/*"
 
-      - name: Performing NextJS build
-        run: yarn build --debug
+      - name: 🏗️ Performing Netlify & NextJS build
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          mkdir .netlify && echo {\"siteId\": \"$NETLIFY_SITE_ID\"} >> .netlify/state.json
+          netlify build
+
+      - name: 🚀 Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: 'out'
+          production-branch: main
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: Deploy ${{ github.ref_name }} from Github Actions
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          netlify-config-path: ./netlify.toml
+          functions-dir: ./.netlify/functions-internal
+          alias: ${{ github.head_ref }}
+          github-deployment-environment: Production
+          github-deployment-description: This is the Production server
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
