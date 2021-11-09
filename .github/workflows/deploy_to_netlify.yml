@@ -26,7 +26,7 @@ jobs:
           yarn --version
 
       - name: Installing dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable --check-cache
 
       - name: 🏗️ Performing Netlify & NextJS build
         env:
@@ -48,7 +48,7 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
           netlify-config-path: ./netlify.toml
-          functions-dir: ./netlify/functions-internal
+          functions-dir: ./.netlify/functions-internal
           alias: ${{ github.head_ref }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
