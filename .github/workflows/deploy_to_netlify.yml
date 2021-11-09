@@ -34,7 +34,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: >
-          echo {\"siteId\": \"${{ NETLIFY_SITE_ID }}\"} > state.json
+          echo {\"siteId\": \"$NETLIFY_SITE_ID\"} > state.json
           netlify build
 
       - name: 🚀 Deploy to Netlify
