@@ -35,7 +35,7 @@ First Clone the project. This will download the GitHub respository files onto yo
 git clone https://github.com/Mark-Shaun/frontend-nextjs.git
 ```
 
-### Frontend Development Environment (React)
+### Frontend Development Environment (NextJS)
 
 Instructions on how to get the Frontend Development server up and running.
 
@@ -45,28 +45,22 @@ Instructions on how to get the Frontend Development server up and running.
 
 #### Frontend Instructions
 
-1. Navigate into the `frontend/` directory
+1. Navigate into the `frontend-nextjs/` directory
 
 ```Shell
-cd proc1 && cd frontend
+cd frontend-nextjs
 ```
 
-2. Install Yarn
-
-```Shell
-npm install -g yarn
-```
-
-3. Install the project dependencies
+2. Install the project dependencies
 
 ```Shell
 yarn install
 ```
 
-4. Start the development server on localhost:3000
+1. Start NextJS development server on localhost:3000
 
 ```Shell
-yarn start
+yarn dev
 ```
 
 <!-- MARKDOWN LINKS & IMAGES -->
