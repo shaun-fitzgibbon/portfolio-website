@@ -43,13 +43,15 @@ jobs:
           production-branch: main
           production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: 'Deploy from GitHub Actions'
+          deploy-message: ${{ github.ref_name }}
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
           netlify-config-path: ./netlify.toml
           functions-dir: ./.netlify/functions-internal
           alias: ${{ github.head_ref }}
+          github-deployment-environment: Production
+          github-deployment-description: This is the Production server
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
