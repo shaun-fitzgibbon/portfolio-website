@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.20...v0.1.21) (2021-11-09)
+
+
+### Bug Fixes
+
+* testing bump version ([b7ec66c](https://github.com/Mark-Shaun/frontend-nextjs/commit/b7ec66c293d2d39373907d25f586bb09307e3d45))
+
+
+
 ## [0.1.20](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.19...v0.1.20) (2021-11-09)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * testing bump version ([a37f6cf](https://github.com/Mark-Shaun/frontend-nextjs/commit/a37f6cf475380423b9b8e6dc91f43f1ea5078005))
-
-
-
-## [0.1.16](https://github.com/Mark-Shaun/frontend-nextjs/compare/v0.1.15...v0.1.16) (2021-11-09)
-
-
-### Bug Fixes
-
-* testing bump version ([1493d69](https://github.com/Mark-Shaun/frontend-nextjs/commit/1493d691981caae15ef39b285414110adc7658c7))
 
 
 
