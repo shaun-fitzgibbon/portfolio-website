@@ -72,7 +72,7 @@ jobs:
           production-branch: main
           production-deploy: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: Deploy ${{ github.ref_name }} from Github Actions
+          deploy-message: Deploy ${{ github.head_ref }} from Github Actions ${{ github.base_ref }}
           enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
