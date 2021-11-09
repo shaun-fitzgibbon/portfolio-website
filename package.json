@@ -1,6 +1,6 @@
 {
   "name": "awesome-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Awesome App",
   "private": true,
   "scripts": {
