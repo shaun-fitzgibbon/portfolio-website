@@ -70,17 +70,17 @@ jobs:
         with:
           publish-dir: 'out'
           production-branch: main
-          production-deploy: true
+          production-deploy: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: Deploy ${{ github.ref_name }} from Github Actions
-          enable-pull-request-comment: false
+          enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
           netlify-config-path: ./netlify.toml
           functions-dir: ./.netlify/functions-internal
-          alias: ${{ github.head_ref }}
-          github-deployment-environment: Production
-          github-deployment-description: This is the Production server
+          alias: deploy-preview-${{ github.event.number }}
+          github-deployment-environment: Preview
+          github-deployment-description: This is a Preview Deployment
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
