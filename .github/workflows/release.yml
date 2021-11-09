@@ -39,7 +39,7 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          git-user-name: 'Assita-bot'
+          git-user-name: ${{github.actor}}
           git-user-email: 'awesome_changelog@github.actions.com'
           github-token: ${{ env.GH_TOKEN }}
           git-message: 'chore(release): {version} [skip ci]'
