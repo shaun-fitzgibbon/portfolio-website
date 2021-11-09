@@ -32,6 +32,14 @@ jobs:
       - name: Performing Netlify & NextJS build
         run: netlify build
 
+      - name: 🏗️ Performing Netlify & NextJS build
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: build
+
       - name: 🚀 Deploy to Netlify
         id: deploy-netlify
         uses: netlify/actions/cli@master
@@ -39,7 +47,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy -m 'v${{ steps.package-version.outputs.current-version}} ・ ${{ github.head_ref }}'
+          args: deploy -m `v${{ steps.package-version.outputs.current-version}} ・ ${{ github.head_ref }}`
 
       #- name: Deploy to Netlify
       #  uses: nwtgck/actions-netlify@v1.2
@@ -58,3 +66,16 @@ jobs:
       #    NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       #    NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       #  timeout-minutes: 1
+#name: Daily Build
+#on:
+#  schedule:
+#    # 0 minute, 8th hour, every day of the month, every month, every day of the week (UTC)
+#    - cron: "0 8 * * *"
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Trigger Netlify Build Hook
+#        run: curl -s -X POST -d {} "https://api.netlify.com/build_hooks/${TOKEN}"
+#        env:
+#          TOKEN: ${{ secrets.NETLIFY_DAILY_CRON_HOOK }}
