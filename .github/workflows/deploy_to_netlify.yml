@@ -29,8 +29,8 @@ jobs:
       - name: Installing dependencies
         run: yarn install --immutable --check-cache
 
-      - name: Performing NextJS build
-        run: yarn run build
+      - name: Performing Netlify & NextJS build
+        run: netlify build
 
       - name: 🚀 Deploy to Netlify
         id: deploy-netlify
