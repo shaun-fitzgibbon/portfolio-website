@@ -33,7 +33,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: >
+        run: |
           mkdir .netlify && echo {\"siteId\": \"$NETLIFY_SITE_ID\"} >> .netlify/state.json
           netlify build
 
