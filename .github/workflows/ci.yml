@@ -33,7 +33,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Running ESLint Linter
-        run: yarn lintclear
+        run: yarn lint
 
       - name: Save Code Linting Report JSON
         run: yarn eslint --output-file eslint_report.json --format json .
