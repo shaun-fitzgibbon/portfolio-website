@@ -1,8 +1,8 @@
 name: Node CI
 
 on:
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
   pull_request:
     branches: [main]
 
@@ -28,10 +28,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-          cache-dependency-path: .yarn/cache
 
       - name: Installing dependencies
-        run: yarn install --immutable --check-cache
+        run: yarn install --immutable
 
       - name: Running ESLint Linter
         run: yarn lint

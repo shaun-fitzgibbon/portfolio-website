@@ -27,7 +27,7 @@ jobs:
           yarn --version
 
       - name: Installing dependencies
-        run: yarn install --immutable --check-cache
+        run: yarn install --frozen-lockfile
 
       - name: 🏗️ Performing Netlify & NextJS build
         env:
