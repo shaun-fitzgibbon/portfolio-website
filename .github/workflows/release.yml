@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }}
+  GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKE }}
 
 jobs:
   changelog:
