@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  GH_TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
+  GH_TOKEN: ${{ secrets.ASISTABOT_AUTH_TOKEN }}
 
 jobs:
   changelog:
