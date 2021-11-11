@@ -14,7 +14,14 @@ jobs:
   changelog:
     runs-on: ubuntu-latest
 
+
+
     steps:
+      # If personal access token supplied then set it as GH_TOKEN
+      - name: 🔍 Setting PERSONAL ACCESS TOKEN
+        if: env.GH_TOKEN != ''
+        run: echo "IS_ADMIN=true" >> $GITHUB_ENV
+      
       # If no personal access token supplied then use GITHUB_TOKEN as GH_TOKEN
       - name: 🔍 Setting standard GITHUB_TOKEN
         if: env.GH_TOKEN == ''
@@ -23,11 +30,6 @@ jobs:
         run: | 
             echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
             echo "IS_ADMIN=false" >> $GITHUB_ENV
-      
-     # If personal access token supplied then set it as GH_TOKEN
-      - name: 🔍 Setting PERSONAL ACCESS TOKEN
-        if: env.GH_TOKEN != ''
-        run: echo "IS_ADMIN=true" >> $GITHUB_ENV
 
       # Disables INCLUDE ADMINISTRATORS setting for github repo if personal access token with ADMIN access was supplied
       # skips if using standard GITHUB_TOKEN
