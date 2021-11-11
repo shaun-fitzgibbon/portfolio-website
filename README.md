@@ -19,6 +19,6 @@ Before installation, please make sure you have already installed following tools
 - Any contributions you make are **greatly appreciated**.
 - Check out our [contribution guidelines](https://github.com/Sfitzg/portfolio-website/blob/main/CONTRIBUTING.md) for more information.
 
-## 🛡️ License
+## 📝 License
 
 This project is licensed under the MIT License - see the [`LICENSE`](https://github.com/Sfitzg/portfolio-website/blob/doc/main/LICENSE.md) file for details.
