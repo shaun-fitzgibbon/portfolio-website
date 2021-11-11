@@ -42,6 +42,7 @@ jobs:
       - name: 🤘 checkout
         uses: actions/checkout@v2
         with:
+          ref: main
           fetch-depth: 0
           token: ${{ env.GH_TOKEN }}
       
