@@ -34,7 +34,7 @@ jobs:
       - name: 🚫 "Temporarily disable 'include administrators' default branch protection"
         id: disable_include_admins
         uses: benjefferies/branch-protection-bot@master
-        if: ${{ always() & env.IS_ADMIN == true }}
+        if: ${{ always() && env.IS_ADMIN == true }}
         with:
           access_token: ${{ env.GH_TOKEN }}
           branch: ${{ github.event.repository.default_branch }}
