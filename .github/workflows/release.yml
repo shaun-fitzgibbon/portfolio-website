@@ -8,7 +8,7 @@ on:
 env:
   # For 'PERSONAL' repo must be repo 'OWNER' for 'ORGANISATION' can be any 'USER' with 'ADMIN' access
   # change to either '' for standard GITHUB_TOKEN or ${{ secrets.YOUR_GITHUB_SECRET }} for personal access token
-  GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }}
+  GH_TOKEN: '' #${{ secrets.ADMIN_AUTH_TOKEN }}
 
 jobs:
   changelog:
