@@ -8,7 +8,7 @@ on:
 env:
   # Uncomment to use a 'PERSONAL ACCESS TOKEN' with 'ADMIN' rights 
   # For 'PERSONAL' repo must be repo 'OWNER' for 'ORGANISATION' can be any 'USER' with 'ADMIN' access 
-    GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }} # change to ${{ secrets.YOUR_GITHUB_SECRET }} if using personal access token with admin rights   
+    GH_TOKEN: '' #${{ secrets.ADMIN_AUTH_TOKEN }} # change to ${{ secrets.YOUR_GITHUB_SECRET }} if using personal access token with admin rights   
   
 jobs:
   changelog:
@@ -20,7 +20,9 @@ jobs:
         if: env.GH_TOKEN == ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "GH_TOKEN=${GITHUB_TOKEN} \n IS_ADMIN=false " >> $GITHUB_ENV
+        run: | 
+            echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
+            echo "IS_ADMIN=false" >> $GITHUB_ENV
       
      # If personal access token supplied then set it as GH_TOKEN
       - name: 🔍 Setting PERSONAL ACCESS TOKEN
