@@ -8,7 +8,7 @@ on:
 env:
   # For 'PERSONAL' repo must be repo 'OWNER' for 'ORGANISATION' can be any 'USER' with 'ADMIN' access
   # change to either '' for standard GITHUB_TOKEN or ${{ secrets.YOUR_GITHUB_SECRET }} for personal access token
-  GH_TOKEN: '' #${{ secrets.ADMIN_AUTH_TOKEN }}
+  GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }}
 
 jobs:
   changelog:
@@ -21,7 +21,7 @@ jobs:
         run: echo "IS_ADMIN=true" >> $GITHUB_ENV
 
       # If no personal access token supplied then use GITHUB_TOKEN as GH_TOKEN
-      - name: 🔍 Using standard GITHUB_TOKEN
+      - name: 🔍 Using Standard GITHUB_TOKEN
         if: env.GH_TOKEN == ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
 
       # Disables INCLUDE ADMINISTRATORS setting for github repo if personal access token with ADMIN access was supplied
       # skips if using standard GITHUB_TOKEN
-      - name: 🚫 "Temporarily disable 'include administrators' default branch protection"
+      - name: 🚫 Temporarily disable "include administrators" default branch protection
         id: disable_include_admins
         uses: benjefferies/branch-protection-bot@master
         if: env.IS_ADMIN == 'true' && always()
