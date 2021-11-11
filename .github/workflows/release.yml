@@ -6,44 +6,56 @@ on:
       - main
 
 env:
-  GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKE }}
-
+  # Uncomment to use a 'PERSONAL ACCESS TOKEN' with 'ADMIN' rights 
+  # For 'PERSONAL' repo must be repo 'OWNER' for 'ORGANISATION' can be any 'USER' with 'ADMIN' access 
+  # GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }} # change to  
+  
 jobs:
   changelog:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔍 GH_TOKEN
+      # If no personal access token supplied then use GITHUB_TOKEN as GH_TOKEN
+      - name: 🔍 Setting standard GITHUB_TOKEN
         if: env.GH_TOKEN == ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
+        run: echo "GH_TOKEN=${GITHUB_TOKEN} \n IS_ADMIN=false " >> $GITHUB_ENV
+      
+     # If personal access token supplied then set it as GH_TOKEN
+      - name: 🔍 Setting PERSONAL ACCESS TOKEN
+        if: env.GH_TOKEN !== ''
+        run: echo "IS_ADMIN=true" >> $GITHUB_ENV
 
+      # Disables INCLUDE ADMINISTRATORS setting for github repo if personal access token with ADMIN access was supplied
+      # skips if using standard GITHUB_TOKEN
       - name: "Temporarily disable 'include administrators' default branch protection"
         id: disable_include_admins
         uses: benjefferies/branch-protection-bot@master
-        if: always()
+        if: always() && env.IS_ADMIN
         with:
           access_token: ${{ env.GH_TOKEN }}
           branch: ${{ github.event.repository.default_branch }}
           enforce_admins: false
-
+      
+      # Checks out the code 
       - name: 🤘 checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          ref: main
           token: ${{ env.GH_TOKEN }}
-
+      
+      # creates Conventional changelog and commits it to repo
       - name: 🚀 Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          git-user-name: ${{github.actor}}
+          git-user-name: "CONVENTIONAL CHANGELOG"
           git-user-email: 'awesome_changelog@github.actions.com'
           github-token: ${{ env.GH_TOKEN }}
-          git-message: 'chore(release): {version} [skip ci]'
+          git-message: 'chore(release): {version} [skip ci]' # uses SKIP CI to prevent endless loop when commiting to branch
 
+      # Creates release using Conventional Commits 
       - name: Create Release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
@@ -54,9 +66,11 @@ jobs:
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
 
+      # sets INCLUDE ADMINISTRATORS setting back to previous state for github repo if personal access token with ADMIN access was supplied
+      # skips if using standard GITHUB_TOKEN
       - name: Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@master
-        if: always() # Force to always run this step to ensure "include administrators" is always turned back on
+        if: always() && IS_ADMIN # Force to always run this step to ensure "include administrators" is always turned back on
         with:
           access_token: ${{ env.GH_TOKEN }}
           branch: ${{ github.event.repository.default_branch }}
