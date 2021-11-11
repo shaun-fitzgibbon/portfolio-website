@@ -5,11 +5,10 @@ on:
     branches:
       - main
 
-
+env:
   # Uncomment to use a 'PERSONAL ACCESS TOKEN' with 'ADMIN' rights 
   # For 'PERSONAL' repo must be repo 'OWNER' for 'ORGANISATION' can be any 'USER' with 'ADMIN' access 
-  #env:
-    #GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }} # change to  
+    GH_TOKEN: '' # change to ${{ secrets.YOUR_GITHUB_SECRET }} if using personal access token with admin rights ... ${{ secrets.ADMIN_AUTH_TOKEN }}   
   
 jobs:
   changelog:
@@ -25,12 +24,12 @@ jobs:
       
      # If personal access token supplied then set it as GH_TOKEN
       - name: 🔍 Setting PERSONAL ACCESS TOKEN
-        if: env.GH_TOKEN !== ''
+        if: env.GH_TOKEN != ''
         run: echo "IS_ADMIN=true" >> $GITHUB_ENV
 
       # Disables INCLUDE ADMINISTRATORS setting for github repo if personal access token with ADMIN access was supplied
       # skips if using standard GITHUB_TOKEN
-      - name: "Temporarily disable 'include administrators' default branch protection"
+      - name: 🚫 "Temporarily disable 'include administrators' default branch protection"
         id: disable_include_admins
         uses: benjefferies/branch-protection-bot@master
         if: always() && env.IS_ADMIN
@@ -47,7 +46,7 @@ jobs:
           token: ${{ env.GH_TOKEN }}
       
       # creates Conventional changelog and commits it to repo
-      - name: 🚀 Conventional Changelog Action
+      - name: 📝 Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
@@ -57,7 +56,7 @@ jobs:
           git-message: 'chore(release): {version} [skip ci]' # uses SKIP CI to prevent endless loop when commiting to branch
 
       # Creates release using Conventional Commits 
-      - name: Create Release
+      - name: 🚀 Create Release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
@@ -69,7 +68,7 @@ jobs:
 
       # sets INCLUDE ADMINISTRATORS setting back to previous state for github repo if personal access token with ADMIN access was supplied
       # skips if using standard GITHUB_TOKEN
-      - name: Enable "include administrators" branch protection
+      - name: ✅  Enable "include administrators" branch protection
         uses: benjefferies/branch-protection-bot@master
         if: always() && IS_ADMIN # Force to always run this step to ensure "include administrators" is always turned back on
         with:
