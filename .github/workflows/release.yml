@@ -6,6 +6,7 @@ on:
       - main
 
 env:
+  # For Use with protected branches must use a Personal Access Token with Admin rights
   # For 'PERSONAL' repo must be repo 'OWNER' for 'ORGANISATION' can be any 'USER' with 'ADMIN' access
   # change to either '' for standard GITHUB_TOKEN or ${{ secrets.YOUR_GITHUB_SECRET }} for personal access token
   GH_TOKEN: ${{ secrets.ADMIN_AUTH_TOKEN }}
@@ -48,7 +49,8 @@ jobs:
           fetch-depth: 0
           token: ${{ env.GH_TOKEN }}
 
-      # creates Conventional changelog and commits it to repo
+      # Creates Conventional changelog and commits it to repo
+      # Commiting to Protected Branches will only work if Personal Access token is used standard GITHUB_TOKEN wont have permission
       - name: 📝 Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
