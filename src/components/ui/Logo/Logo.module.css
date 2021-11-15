@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.highlight {
+  color: #ec5990;
+  font-weight: bold;
+  margin-left: 7px;
+}
