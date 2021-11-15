@@ -42,16 +42,16 @@ const Home: NextPage = ({ projects }: any) => {
 
       <section className={styles['hero-section']}>
         <h1 className={styles.title}>
-          Hi, I{'&apos'}m <a href="https://nextjs.org">Shaun Fitzgibbon</a>{' '}
-          <br /> I{'&apos'}m a web developer
+          Hi, I&apos;m <br /> Shaun Fitzgibbon <br /> I&apos;m a web developer
         </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
-
-        <button>About me</button>
+        <div>
+          <button>About me</button>
+        </div>
       </section>
 
       <section id="about-section" className={styles['about-section']}>
