@@ -1,0 +1,22 @@
+.wrapper {
+  background-color: blueviolet;
+  height: 100px;
+}
+
+.mainmenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.link {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+}
+
+.link:hover {
+  color: aquamarine;
+}

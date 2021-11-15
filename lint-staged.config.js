@@ -13,12 +13,12 @@ const removeIgnoredFiles = async (files) => {
 
 module.exports = {
   // Type check TypeScript files
-  '**/*.ts?(x)': () => 'yarn tsc --project tsconfig.json --pretty --noEmit',
+  '**/*.ts?(x)': () => 'tsc --project tsconfig.json --pretty --noEmit',
 
   // Lint TypeScript and JavaScript files
   '**/*.(ts|tsx|js|jsx)': async (files) => {
     const filesToLint = await removeIgnoredFiles(files)
-    return [`next lint --max-warnings=0 --fix ${filesToLint}`]
+    return [`eslint --max-warnings=0 --fix ${filesToLint}`]
   },
 
   // Lint Css and Sass
