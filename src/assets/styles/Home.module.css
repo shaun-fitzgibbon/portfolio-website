@@ -2,7 +2,7 @@
   padding: 0 2rem;
 }
 
-.hero {
+.hero-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,8 +22,15 @@
   background-color: #a51c1c;
 }
 
+.title {
+  margin: 0;
+  font-size: 4rem;
+  line-height: 1.15;
+  color: white;
+}
+
 .title a {
-  color: blueviolet;
+  color: #ec5990;
   text-decoration: none;
 }
 
@@ -31,12 +38,6 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  font-size: 4rem;
-  line-height: 1.15;
 }
 
 .title,
