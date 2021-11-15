@@ -1,0 +1,80 @@
+.container {
+  padding: 0 2rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
+  padding: 4rem 0;
+  background-color: blueviolet;
+}
+
+.about-section,
+.projects-section,
+.contact-section {
+  min-height: 100vh;
+  background-color: #a51c1c;
+}
+
+.title a {
+  color: blueviolet;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  font-size: 4rem;
+  line-height: 1.15;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 4rem 0;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.code {
+  padding: 0.75rem;
+  background: #fafafa;
+  font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono',
+    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    flex-direction: column;
+    width: 100%;
+  }
+}
