@@ -1,0 +1,58 @@
+.toggle-button {
+
+  z-index: 51;
+  display: flex;
+  width: 35px;
+  height: 35px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.line {
+
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+/* Rotate first bar */
+.line:nth-child(1).active {
+
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.line:nth-child(2).active {
+
+  opacity: 0%;
+}
+
+/* Rotate last bar */
+.line:nth-child(3).active {
+
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .line {
+
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    border-radius: 50px;
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .toggle-button {
+
+    display: none;
+  }
+}
