@@ -1,0 +1,40 @@
+@media screen and (prefers-reduced-motion: reduce) {
+  .Button {
+    /* border: 2px solid #ec5990; */
+
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background-color: hsl(338deg 79% 64%);
+
+    /* text-transform: uppercase; */
+
+    /* font-weight: bold; */
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    transition: none;
+  }
+}
+
+.Button {
+  /* border: 2px solid #ec5990; */
+
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  background-color: hsl(338deg 79% 64%);
+
+  /* text-transform: uppercase; */
+
+  /* font-weight: bold; */
+  border-radius: 5px;
+  color: white;
+  outline: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.Button:hover,
+.Button:focus {
+  background-color: aqua;
+}
