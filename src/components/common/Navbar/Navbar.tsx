@@ -1,33 +1,28 @@
+import { FC } from 'react'
 import Link from 'next/link'
 
-import { Logo } from '@components/ui'
+import { Logo, Container, NavLinks } from '@components/ui'
+import { MobileMenuToggle } from '@components/ui'
+import { useUI } from '@contexts'
 import styles from './Navbar.module.css'
 
-const Navbar = () => {
+const Navbar: FC = () => {
+  const { displaySidebar, toggleSidebar } = useUI()
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.mainmenu}>
-        <Link href="/">
-          <a className={styles.link}>
-            <Logo />
-          </a>
-        </Link>
-
-        <nav>
+    <div className={styles.navWrapper}>
+      <Container>
+        <div className={styles.navContent}>
           <Link href="/">
-            <a className={styles.link}>Home</a>
+            <a>
+              <Logo />
+            </a>
           </Link>
-          <Link href="#about-section">
-            <a className={styles.link}>About</a>
-          </Link>
-          <Link href="#projects-section">
-            <a className={styles.link}>Projects</a>
-          </Link>
-          <Link href="#contact-section">
-            <a className={styles.link}>Contact</a>
-          </Link>
-        </nav>
-      </div>
+          <div className={styles.navMenu}>
+            <NavLinks />
+          </div>
+          <MobileMenuToggle onClick={toggleSidebar} isActive={displaySidebar} />
+        </div>
+      </Container>
     </div>
   )
 }
