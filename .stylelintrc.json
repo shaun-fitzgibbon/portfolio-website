@@ -1,8 +1,22 @@
 {
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order",
+    "stylelint-color-format",
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-a11y"
+  ],
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-css-modules",
     "stylelint-config-idiomatic-order",
+    "stylelint-a11y/recommended",
     "stylelint-config-prettier"
-  ]
+  ],
+  "rules": {
+    "color-format/format": {
+      "format": "hsla"
+    },
+    "selector-class-pattern": null
+  }
 }
