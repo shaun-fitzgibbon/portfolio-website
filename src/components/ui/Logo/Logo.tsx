@@ -1,8 +1,9 @@
+import { VFC } from 'react'
 import Image from 'next/image'
+import logo from '@static/logo.png'
 import styles from './Logo.module.css'
-import logo from '../../../../public/logo.png'
 
-const Logo = () => {
+const Logo: VFC = () => {
   return (
     <div className={styles.root}>
       <Image
