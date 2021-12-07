@@ -1,0 +1,42 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+.sideDrawer {
+  z-index: 50;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: blueviolet;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: translateX(+100%);
+  transition: none;
+}
+}
+
+.sideDrawer {
+  z-index: 50;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: blueviolet;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: translateX(+100%);
+  transition: transform 0.3s ease-out;
+}
+
+.sideDrawer.visible {
+  transform: translateX(0);
+}
