@@ -8,11 +8,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "stylelint-check": "stylelint-config-prettier-check",
     "postinstall": "husky install"
   },
   "dependencies": {
+<<<<<<< HEAD
     "netlify-cli": "^6.14.18",
     "next": "^12.0.5",
+=======
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "classnames": "^2.3.1",
+    "next": "^12.0.2",
+>>>>>>> 9392283 (build: update package.json installs)
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -20,6 +27,7 @@
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
     "@netlify/plugin-nextjs": "^3.9.2",
+    "@types/body-scroll-lock": "^3.1.0",
     "@types/node": "16.11.6",
     "@types/react": "17.0.34",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
@@ -32,12 +40,21 @@
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "netlify-cli": "^6.14.18",
+    "postcss": "^8.4.4",
+    "postcss-scss": "^4.0.2",
+    "postcss-sorting": "^7.0.1",
     "prettier": "^2.4.1",
     "stylelint": "^14.0.1",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-color-format": "^1.1.0",
+    "stylelint-config-airbnb": "^0.0.0",
     "stylelint-config-css-modules": "^2.3.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^23.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.0.0",
     "typescript": "^4.4.4"
   },
   "packageManager": "yarn@3.1.0"
