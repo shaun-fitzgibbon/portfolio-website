@@ -7,7 +7,7 @@
     "stylelint-a11y"
   ],
   "extends": [
-    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
     "stylelint-config-css-modules",
     "stylelint-config-idiomatic-order",
     "stylelint-a11y/recommended",
@@ -17,6 +17,8 @@
     "color-format/format": {
       "format": "hsla"
     },
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true
   }
 }
