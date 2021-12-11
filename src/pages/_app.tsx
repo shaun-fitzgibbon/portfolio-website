@@ -1,12 +1,18 @@
 import type { AppProps } from 'next/app'
-import '@assets/styles/globals.css'
-import { Layout } from '@components/common'
+import '@assets/styles/globals.scss'
+import { Head, Layout } from '@components/common'
+import { UIProvider } from '@contexts/UIContext/UIContext'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = function ({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head />
+      <UIProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UIProvider>
+    </>
   )
 }
 
