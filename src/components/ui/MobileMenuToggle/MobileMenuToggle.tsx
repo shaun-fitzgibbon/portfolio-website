@@ -1,4 +1,3 @@
-import { VFC } from 'react'
 import cn from 'classnames'
 import styles from './MobileMenuToggle.module.css'
 
@@ -7,14 +6,14 @@ interface ToggleProps {
   isActive: boolean
 }
 
-const MobileMenuToggle: VFC<ToggleProps> = function ({ onClick, isActive }) {
-  const lines = isActive ? cn(styles.line, styles.active) : cn(styles.line)
+const MobileMenuToggle = function ({ onClick, isActive }: ToggleProps) {
+  const Bar = isActive ? cn(styles.Bar, styles.Active) : cn(styles.Bar)
 
   return (
-    <button className={styles['toggle-button']} onClick={onClick}>
-      <div className={lines} />
-      <div className={lines} />
-      <div className={lines} />
+    <button className={styles.Toggle} onClick={onClick}>
+      <div className={Bar} />
+      <div className={Bar} />
+      <div className={Bar} />
     </button>
   )
 }
