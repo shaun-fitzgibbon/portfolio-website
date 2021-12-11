@@ -1,18 +1,18 @@
 import { FC } from 'react'
 import cn from 'classnames'
 
-import styles from './SideDrawer.module.css'
+import styles from './Sidebar.module.scss'
 
-interface SideDrawerProps {
-  isSideDrawerVisible: boolean
+interface SidebarProps {
+  isSidebarVisible: boolean
   onClose: () => void
 }
 
-const SideDrawer: FC<SideDrawerProps> = function ({
+const Sidebar: FC<SidebarProps> = function ({
   children,
-  isSideDrawerVisible,
+  isSidebarVisible,
   onClose,
-}) {
+}): JSX.Element {
   const onKeyDownSidebar = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.code === 'Escape') {
       onClose()
@@ -23,7 +23,7 @@ const SideDrawer: FC<SideDrawerProps> = function ({
     <div className={styles.wrapper} onKeyDown={onKeyDownSidebar}>
       <aside
         className={
-          isSideDrawerVisible
+          isSidebarVisible
             ? cn(styles.sideDrawer, styles.visible)
             : styles.sideDrawer
         }
@@ -34,4 +34,4 @@ const SideDrawer: FC<SideDrawerProps> = function ({
   )
 }
 
-export default SideDrawer
+export default Sidebar
