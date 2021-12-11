@@ -1,10 +1,12 @@
-export const projects = [
+import { Project } from './data.types'
+
+export const projects: Project[] = [
   {
     id: 1,
     title: 'George Lucas - Tribute Page',
     description:
       'A tribute page designed and built for freecodecamp project. I chose to do this on George Lucas as I am a huge fan of the Star wars movies.',
-    image: 'https://github.com/eddiejaoude.png',
+    imageUrl: '/images/projects/george-lucas.png',
     website: {
       name: 'website',
       url: 'https://codepen.io/sfitzg/full/PopPeeb',
@@ -19,10 +21,10 @@ export const projects = [
     title: 'Business - Survey Form',
     description:
       'A basic survey form designed using figma and coded using html & css for freecodecamp project',
-    image: 'https://github.com/eddiejaoude.png',
+    imageUrl: '/images/projects/survey-form.png',
     website: {
       name: 'website',
-      url: 'https://codepen.io/sfitzg/full/oNeLMNz',
+      url: 'http://codepen.io/sfitzg/full/oNeLMNz',
     },
     source: {
       name: 'source',
@@ -33,7 +35,7 @@ export const projects = [
     id: 3,
     title: 'George Lucas - Tribute Page',
     description: '',
-    image: 'https://github.com/eddiejaoude.png',
+    imageUrl: '/images/projects/george-lucas.png',
     website: {
       name: 'website',
       url: 'https://github.com/eddiejaoude',
