@@ -1,7 +1,7 @@
 {
-  "name": "awesome-app",
-  "version": "0.2.0",
-  "description": "Awesome App",
+  "name": "personal-portfolio",
+  "version": "0.1.0",
+  "description": "Shaun's Personal Portfolio",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,26 +14,27 @@
   "dependencies": {
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.1",
-    "next": "^12.0.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "next": "^12.0.7",
+    "react": "^17.0.2",
+    "react-dom": "17.0.2",
+    "sass": "^1.45.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^14.1.0",
-    "@commitlint/config-conventional": "^14.1.0",
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@netlify/plugin-nextjs": "^3.9.2",
     "@types/body-scroll-lock": "^3.1.0",
-    "@types/node": "16.11.6",
-    "@types/react": "17.0.34",
-    "@typescript-eslint/eslint-plugin": "^5.3.1",
-    "@typescript-eslint/parser": "^5.3.1",
-    "eslint": "7",
-    "eslint-config-next": "12.0.2",
+    "@types/node": "^16.11.12",
+    "@types/react": "^17.0.37",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-config-next": "^12.0.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.3",
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.6",
+    "lint-staged": "^12.1.2",
     "netlify-cli": "^8.0.20",
     "prettier": "^2.5.1",
     "stylelint": "^14.1.0",
@@ -43,11 +44,11 @@
     "stylelint-config-css-modules": "^2.3.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
     "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.0.0",
-    "typescript": "^4.4.4"
+    "stylelint-scss": "^4.0.1",
+    "typescript": "^4.5.3"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.1"
 }
