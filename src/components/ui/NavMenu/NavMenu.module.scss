@@ -1,0 +1,24 @@
+.Menu {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.Link {
+  display: inline-block;
+  padding: 10px;
+  color: white;
+
+  &:hover,
+  &:focus {
+    color: hsl(338deg 79% 64%);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .Menu {
+    flex-direction: row;
+  }
+}
