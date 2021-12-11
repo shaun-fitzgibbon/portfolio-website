@@ -1,19 +1,19 @@
 import { VFC } from 'react'
 import Image from 'next/image'
 import logo from '@static/logo.png'
-import styles from './Logo.module.css'
+import styles from './Logo.module.scss'
 
 const Logo: VFC = () => {
   return (
-    <div className={styles.root}>
+    <div className={styles.Root}>
       <Image
-        className={styles.logo}
+        className={styles.Logo}
         src={logo}
         alt="logo"
         height="55px"
         width="55px"
       />
-      <span className={styles.highlight}>SHAUN</span> FITZGIBBON
+      <span className={styles.Highlight}>SHAUN</span> FITZGIBBON
     </div>
   )
 }
