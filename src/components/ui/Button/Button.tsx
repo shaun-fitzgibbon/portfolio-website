@@ -1,29 +1,36 @@
-import {
-  ButtonHTMLAttributes,
-  ComponentType,
-  FC,
-  HTMLAttributes,
-  ReactNode,
-} from 'react'
-import styles from './Button.module.css'
+import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
+import cn from 'classnames'
+import styles from './Button.module.scss'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode | ReactNode[]
-  Component?: string | ComponentType<HTMLAttributes<HTMLElement>>
+type ButtonProps<T extends ElementType> = {
+  renderAs?: T
   isLoading?: boolean
-  href?: string
-}
+  isCompleted?: boolean
+  size?: 'Small' | 'Medium' | 'Large'
+  children: ReactNode
+} & ComponentPropsWithoutRef<T>
 
-const Button: FC<ButtonProps> = ({
+const Button = <T extends ElementType = 'button'>({
+  renderAs,
+  isLoading,
+  isCompleted,
+  size = 'Medium',
   children,
-  isLoading = false,
-  Component = 'button',
   ...rest
-}) => {
+}: ButtonProps<T>): JSX.Element => {
+  const Component = renderAs || 'button'
+
   return (
-    <Component className={styles.Button} type="button" {...rest}>
-      {children}
-      {isLoading ? '...' : null}
+    <Component
+      className={cn(
+        styles.Button,
+        styles[`Button${size}`],
+        isLoading && styles.Loading
+      )}
+      as={renderAs}
+      {...rest}
+    >
+      {isCompleted ? 'Complete' : children}
     </Component>
   )
 }
