@@ -15,19 +15,42 @@ const Footer: FC = function () {
         <div className={styles.MiddleContent}>
           <div>
             <h2 className={styles.ColumnHeader}>Follow Me</h2>
+            <ul>
+              <li>Github</li>
+              <li>Dribbble</li>
+              <li>Twitter</li>
+              <li>LinkedIN</li>
+              <li>YouTube</li>
+            </ul>
           </div>
           <div>
             <h2 className={styles.ColumnHeader}>Get in Contact</h2>
             <form name="contact" method="POST" data-netlify="true">
-              <input type="hidden" name="form-name" value="contact" />
-              <div>
-                <input type="text" placeholder="Name" name="name" />
+              <input
+                className={styles.Input}
+                type="hidden"
+                name="form-name"
+                value="contact"
+              />
+              <div className={styles.Field}>
+                <input
+                  className={styles.Input}
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                />
               </div>
-              <div>
-                <input type="email" placeholder="Email" name="email" />
+              <div className={styles.Field}>
+                <input
+                  className={styles.Input}
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                />
               </div>
-              <div>
+              <div className={styles.Field}>
                 <textarea
+                  className={styles.Input}
                   placeholder="Description"
                   name="description"
                   id=""
@@ -35,8 +58,13 @@ const Footer: FC = function () {
                   rows={7}
                 ></textarea>
               </div>
-              <div>
-                <Button type="submit">HIT ME UP</Button>
+              <div className={styles.Field}>
+                <div data-netlify-recaptcha="true"></div>
+              </div>
+              <div className={styles.Field}>
+                <Button isLoading={true} type="submit">
+                  HIT ME UP
+                </Button>
               </div>
             </form>
           </div>
