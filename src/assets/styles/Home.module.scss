@@ -1,19 +1,20 @@
-.hero-section {
+@import 'mixins';
+
+.HeroSection {
   position: relative;
   display: flex;
   width: 100%;
-  height: calc(100vh - 100px);
-  min-height: calc(100vh - 100px);
+  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
-  padding: 30px 0;
+  padding: 100px 0 0;
   background-color: blueviolet;
 }
 
-.about-section,
-.projects-section,
-.skills-section,
-.contact-section {
+.AboutSection,
+.ProjectsSection,
+.SkillsSection,
+.ContactSection {
   display: flex;
   min-height: 100vh;
   align-items: center;
@@ -22,11 +23,11 @@
   margin: 0;
 }
 
-.projects-section {
+.ProjectsSection {
   background: hsl(338deg 79% 64%);
 }
 
-.SectionTitle .projects-section {
+.SectionTitle .ProjectsSection {
   color: white;
 }
 
@@ -74,7 +75,7 @@
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 600px) {
+@include desktop {
   .AboutContent {
     display: flex;
     width: 100%;
