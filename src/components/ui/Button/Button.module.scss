@@ -1,0 +1,103 @@
+.Button {
+  position: relative;
+  width: 100%;
+  border: none;
+  background-color: hsl(338deg 79% 64%);
+  color: white;
+  outline: none;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: hsl(338deg 52% 58%);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 3px 6px hsl(338deg 79% 64%);
+  }
+
+  &:disabled {
+    background: hsl(338deg 51% 32%);
+    cursor: not-allowed;
+  }
+}
+
+.ButtonSmall {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: small;
+}
+
+.ButtonMedium {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+.ButtonLarge {
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: larger;
+}
+
+.Loading {
+  position: relative;
+  height: 100%;
+  cursor: wait;@media screen and (prefers-reduced-motion: reduce) {
+&::before {
+    left: -100%;
+    width: 400%;
+    height: 100%;
+    animation: none;
+    background: green
+      repeating-linear-gradient(
+        60deg,
+        transparent,
+        transparent 10px,
+        blue 5px,
+        blue 20px
+      );
+    content: '';
+}
+}
+
+  &::before {
+    left: -100%;
+    width: 400%;
+    height: 100%;
+    animation: loading-animation 2s infinite linear;
+    background: green
+      repeating-linear-gradient(
+        60deg,
+        transparent,
+        transparent 10px,
+        blue 5px,
+        blue 20px
+      );
+    content: '';
+  }
+}
+
+@keyframes loading-animation {
+  0% {
+    transform: translateX(25px);
+  }
+
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .Button {
+    transition: none;
+
+    ::before {
+      animation: none;
+    }
+  }
+
+  .Loading::before {
+    animation: none;
+  }
+}
