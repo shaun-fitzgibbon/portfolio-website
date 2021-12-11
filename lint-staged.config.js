@@ -1,13 +1,13 @@
 const { ESLint } = require('eslint')
 
-const removeIgnoredFiles = async (files) => {
+const removeIgnoredFiles = async (filenames) => {
   const eslint = new ESLint()
   const isIgnored = await Promise.all(
-    files.map((file) => {
-      return eslint.isPathIgnored(file)
+    filenames.map((filename) => {
+      return eslint.isPathIgnored(filename)
     })
   )
-  const filteredFiles = files.filter((_, i) => !isIgnored[i])
+  const filteredFiles = filenames.filter((_, i) => !isIgnored[i])
   return filteredFiles.join(' ')
 }
 
@@ -16,8 +16,8 @@ module.exports = {
   '**/*.ts?(x)': () => 'tsc --project tsconfig.json --pretty --noEmit',
 
   // Lint TypeScript and JavaScript files
-  '**/*.(ts|tsx|js|jsx)': async (files) => {
-    const filesToLint = await removeIgnoredFiles(files)
+  '**/*.(ts|tsx|js|jsx)': async (filesnames) => {
+    const filesToLint = await removeIgnoredFiles(filesnames)
     return [`eslint --max-warnings=0 --fix ${filesToLint}`]
   },
 
