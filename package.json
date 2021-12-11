@@ -21,7 +21,8 @@
     "next": "^12.0.2",
 >>>>>>> 9392283 (build: update package.json installs)
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.44.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
@@ -30,6 +31,7 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@types/node": "16.11.6",
     "@types/react": "17.0.34",
+    "@types/sass": "^1",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
     "eslint": "7",
@@ -48,6 +50,7 @@
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.0.0",
