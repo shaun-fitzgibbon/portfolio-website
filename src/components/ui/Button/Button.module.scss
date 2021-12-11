@@ -43,23 +43,24 @@
 .Loading {
   position: relative;
   height: 100%;
-  cursor: wait;@media screen and (prefers-reduced-motion: reduce) {
-&::before {
-    left: -100%;
-    width: 400%;
-    height: 100%;
-    animation: none;
-    background: green
-      repeating-linear-gradient(
-        60deg,
-        transparent,
-        transparent 10px,
-        blue 5px,
-        blue 20px
-      );
-    content: '';
-}
-}
+  cursor: wait;
+  @media screen and (prefers-reduced-motion: reduce) {
+    &::before {
+      left: -100%;
+      width: 400%;
+      height: 100%;
+      animation: none;
+      background: green
+        repeating-linear-gradient(
+          60deg,
+          transparent,
+          transparent 10px,
+          blue 5px,
+          blue 20px
+        );
+      content: '';
+    }
+  }
 
   &::before {
     left: -100%;
