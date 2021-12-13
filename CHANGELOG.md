@@ -1,4 +1,4 @@
-# 0.2.0 (2021-11-11)
+# 0.2.0 (2021-12-13)
 
 
 ### Bug Fixes
@@ -59,9 +59,33 @@
 ### Features
 
 * :sparkles: Add NextJS Framework ([37bef51](https://github.com/Sfitzg/portfolio-website/commit/37bef514bc4560052254843fa955fbaebe21de62))
+* add `.editorconfig` file ([1cf9156](https://github.com/Sfitzg/portfolio-website/commit/1cf91565350c50e00a2396594cb657fe6b208b68))
+* add `Footer` component ([8e978ee](https://github.com/Sfitzg/portfolio-website/commit/8e978eef2649c87c2dcf31d25a4c88b1dd03b705))
+* add `Layout` Component ([39ba3ba](https://github.com/Sfitzg/portfolio-website/commit/39ba3ba7152ab04f7f5e4557cf0f3ea2eae13504))
+* add `Logo` component ([1993420](https://github.com/Sfitzg/portfolio-website/commit/199342011af6df91631c365ed4afdeb0181b9a63))
+* add `NavMenu` ([7875aba](https://github.com/Sfitzg/portfolio-website/commit/7875aba2ae4332be1a86aca8e24c3a07d4fb479e))
+* add `SASS` to `nextJS` ([aa0c88d](https://github.com/Sfitzg/portfolio-website/commit/aa0c88d624d5d497309c1d6f1e8e820b87c1d3c5))
+* add `SASS` to STYLELINT ([a645f89](https://github.com/Sfitzg/portfolio-website/commit/a645f8933f7f78cd7eb42597434697172ac9631a))
+* add Backdrop component ([d376457](https://github.com/Sfitzg/portfolio-website/commit/d3764578043e8e212c04a77e7602f2e5167f9e8a))
+* add blog page component ([efbf32f](https://github.com/Sfitzg/portfolio-website/commit/efbf32fb352502761f175c6487ba9ce589158e4f))
+* add Button Component ([38954b5](https://github.com/Sfitzg/portfolio-website/commit/38954b5f60c1185e408a89d3a5dbe7caaa017892))
+* add Container component ([c2cbb7c](https://github.com/Sfitzg/portfolio-website/commit/c2cbb7c5c0ce5bf80b7d070aa110072eb4e66d51))
+* add favicon images ([afa817f](https://github.com/Sfitzg/portfolio-website/commit/afa817ff3617b5db1957deb2962e8aebdfec1dee))
+* add grid component ([addc2f8](https://github.com/Sfitzg/portfolio-website/commit/addc2f804ecaa45ac707893a77b5bb5c608eda3c))
 * add husky and commitlint ([bc7e75e](https://github.com/Sfitzg/portfolio-website/commit/bc7e75e12786c7bf25a20c000f1f6f05ed40021a))
 * add husky pre-push to run tests locally before push ([ea8545d](https://github.com/Sfitzg/portfolio-website/commit/ea8545da57be66dc197db3b2b9b15d9a8213ab9c))
 * add husky precommit to run lintstaged before commit ([8d5f9fe](https://github.com/Sfitzg/portfolio-website/commit/8d5f9feb6f1ef06965637cdc9b8f567b2a72ff49))
+* add images for projects ([1ed713b](https://github.com/Sfitzg/portfolio-website/commit/1ed713b3fbe0cc84ae25afef448b72c5ae1527b6))
+* add logo image ([36806ac](https://github.com/Sfitzg/portfolio-website/commit/36806acc2fe07061479bcd48eccf459fc5ab0573))
+* add NavLinks Component ([226aa50](https://github.com/Sfitzg/portfolio-website/commit/226aa505c212f049e9cb371770674c96cc913477))
+* add Scrolled animations and show and hide on scroll to navbar ([fd3b2e7](https://github.com/Sfitzg/portfolio-website/commit/fd3b2e7fcf8d66aac33e8553434e7b7cfccd2acf))
+* add SideDrawer Component ([0d30eb7](https://github.com/Sfitzg/portfolio-website/commit/0d30eb722cbd9c8ad1ff9e4c715d03db813a4320))
+* add site.webmanifest ([84504ac](https://github.com/Sfitzg/portfolio-website/commit/84504acb5854dacc944c21e0f386d9f49e1b01a2))
+
+
+### Reverts
+
+* update `tsconfig.json` to contain src in paths ([74751a5](https://github.com/Sfitzg/portfolio-website/commit/74751a56c9e149256d36234ed41ddb271422c170))
 
 
 
