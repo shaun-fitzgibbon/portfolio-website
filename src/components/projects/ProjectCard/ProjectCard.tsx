@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Project } from 'src/data/data.types'
+import { Project } from 'src/data/projects/projects'
 import styles from './ProjectCard.module.scss'
 
 interface ProjectCardProps {
