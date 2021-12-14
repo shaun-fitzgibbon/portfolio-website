@@ -1,0 +1,1 @@
+export { useScrollspy } from './useScrollSpy'
