@@ -1,4 +1,15 @@
-# 0.2.0 (2021-12-13)
+# [0.3.0](https://github.com/Sfitzg/portfolio-website/compare/v0.2.0...v0.3.0) (2021-12-14)
+
+
+### Features
+
+* add `Scrollspy` ([c9ff64d](https://github.com/Sfitzg/portfolio-website/commit/c9ff64da84af524e6166d2b9060b0c13c261e38c))
+* add lodash debounce and mdx-bundler to dependencies `package.json` ([d252929](https://github.com/Sfitzg/portfolio-website/commit/d2529294ffdd98873faeb9d4f448a8d4db3d7749))
+* add markdown blog ([bb68c79](https://github.com/Sfitzg/portfolio-website/commit/bb68c791c8e2bfde4b29c8d0458f5832e0f27a5d))
+
+
+
+# [0.2.0](https://github.com/Sfitzg/portfolio-website/compare/bc7e75e12786c7bf25a20c000f1f6f05ed40021a...v0.2.0) (2021-12-13)
 
 
 ### Bug Fixes
