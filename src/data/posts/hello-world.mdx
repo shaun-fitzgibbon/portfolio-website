@@ -1,0 +1,123 @@
+---
+title: 'First post'
+description: 'Hello World Blog'
+date: '2021-08-03'
+isPublished: true
+---
+
+# HEADING
+
+## HEADING
+
+### HEADING
+
+#### HEADING
+
+##### HEADING
+
+###### HEADING
+
+### PARAGRAPH
+
+This is an my first post. There's another one [here](/posts/post-with-cool-component).
+
+### BLOCKQUOTE
+
+> this is a block quote
+
+### UNORDERED LIST
+
+- one
+- two
+- three
+- four
+- five
+
+### ORDERED LIST
+
+1. one
+2. two
+3. three
+4. four
+5. five
+
+### TASKLIST
+
+- [ ] to do
+- [x] done
+
+## TABLE
+
+| Header 1 | Header 2 | Header 3 | Header 4 |
+| -------- | :------- | -------: | :------: |
+| baz      | qux      |      baz |   qux    |
+| baz      | qux      |      baz |   qux    |
+
+### CODE BLOCK
+
+```
+code
+```
+
+### INLINE CODE
+
+`inlineCode`
+
+### PRE CODE
+
+```js{4-7,9}
+export const getSinglePost = async (slug) => {
+  const source = getSourceOfFile(slug + '.mdx')
+
+  const { code, frontmatter } = await bundleMDX(source, {
+    cwd: POSTS_PATH,
+    xdmOptions(options) {
+      // this is the recommended way to add custom remark/rehype plugins:
+      // The syntax might look weird, but it protects you in case we add/remove
+      // plugins in the future.
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []),
+        //   remarkAutolinkHeadings,
+        //  remarkSlug,
+        //   remarkCodeTitle,
+      ]
+      options.rehypePlugins = [...(options.rehypePlugins ?? []), mdxPrism]
+
+      return options
+    },
+  })
+
+  return {
+    frontmatter,
+    code,
+  }
+}
+```
+
+### EMPHASIS
+
+_emphasis_
+
+### STRONG
+
+**strong**
+
+### STRIKETHROUGH
+
+~one~ or ~~two~~ tildes.
+
+### BREAK
+
+---
+
+### LINK
+
+[MDX](https://mdxjs.com)
+
+### Autolink literals
+
+www.example.com, https://example.com, and contact@example.com.
+
+### IMAGE
+
+![alt](https://mdx-logo.now.sh)

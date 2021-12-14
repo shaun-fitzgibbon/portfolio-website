@@ -3,14 +3,7 @@ import type { InferGetStaticPropsType, GetStaticProps, NextPage } from 'next'
 import styles from '@assets/styles/Home.module.scss'
 import { Button, Container, Grid } from '@components/ui'
 import { ProjectCard } from '@components/projects'
-import { projects } from '../data/data'
-import { Project } from 'src/data/data.types'
-
-export const getStaticProps: GetStaticProps = async () => ({
-  props: {
-    projects,
-  },
-})
+import { projects, Project } from '../data/projects/projects'
 
 const Home: NextPage = function ({
   projects,
@@ -82,5 +75,11 @@ const Home: NextPage = function ({
     </>
   )
 }
+
+export const getStaticProps: GetStaticProps = async () => ({
+  props: {
+    projects,
+  },
+})
 
 export default Home
