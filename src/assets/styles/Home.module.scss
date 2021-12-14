@@ -1,7 +1,6 @@
-@import 'mixins';
-
 .HeroSection {
   position: relative;
+  top: -100px;
   display: flex;
   width: 100%;
   min-height: 100vh;
@@ -24,10 +23,14 @@
 }
 
 .ProjectsSection {
-  background: hsl(338deg 79% 64%);
+  background: $primary-color;
+
+  &.SectionTitle {
+    color: white;
+  }
 }
 
-.SectionTitle .ProjectsSection {
+.SectionTitle.ProjectsSection {
   color: white;
 }
 
