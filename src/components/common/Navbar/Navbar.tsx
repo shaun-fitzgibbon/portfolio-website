@@ -1,14 +1,15 @@
-import { useState, useEffect, FC, useCallback } from 'react'
+import { useState, useMemo, useEffect, useCallback, FC } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
+import debounce from 'lodash.debounce'
 
-import { Logo, Container, NavMenu } from '@components/ui'
+import { Logo, Container, NavMenu, Sidebar } from '@components/ui'
 import { MobileMenuToggle } from '@components/ui'
 import { useUI } from '@contexts'
 import styles from './Navbar.module.scss'
 
 const Navbar: FC = () => {
-  const { isSidebarOpen, toggleSidebar } = useUI()
+  const { isSidebarOpen, toggleSidebar, closeSidebar } = useUI()
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [scrolled, setScrolled] = useState(false)
   const [visible, setVisible] = useState(true)
@@ -29,17 +30,22 @@ const Navbar: FC = () => {
     )
 
     setPrevScrollPos(currentScrollPos)
-
-    console.log(currentScrollPos)
     console.log(prevScrollPos)
+    console.log(currentScrollPos)
   }, [prevScrollPos])
 
+  const debouncedHandleScroll = useMemo(
+    () => debounce(handleScroll, 300),
+    [handleScroll]
+  )
+
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', debouncedHandleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('scroll', debouncedHandleScroll)
+      debouncedHandleScroll.cancel
     }
-  }, [prevScrollPos, visible, handleScroll])
+  }, [prevScrollPos, visible, debouncedHandleScroll])
 
   return (
     <div
@@ -64,6 +70,10 @@ const Navbar: FC = () => {
               onClick={toggleSidebar}
               isActive={isSidebarOpen}
             />
+            <Sidebar isSidebarVisible={isSidebarOpen} onClose={closeSidebar}>
+              {' '}
+              <NavMenu onClick={closeSidebar} />
+            </Sidebar>
           </div>
         </div>
       </Container>

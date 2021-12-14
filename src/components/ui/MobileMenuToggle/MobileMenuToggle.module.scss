@@ -1,5 +1,6 @@
 .Toggle {
-  z-index: 51;
+  position: relative;
+  z-index: 10;
   display: flex;
   width: 35px;
   height: 35px;
@@ -17,29 +18,25 @@
   background-color: white;
   border-radius: 50px;
   transition: 0.3s;
-}
 
-/* Rotate first bar */
-.Bar:nth-child(1).Active {
-  transform: rotate(-45deg) translate(-9px, 6px);
-}
+  /* Rotate first bar */
+  &:nth-child(1).Active {
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
 
-/* Fade out the second bar */
-.Bar:nth-child(2).Active {
-  opacity: 0;
-}
+  /* Fade out the second bar */
+  &:nth-child(2).Active {
+    opacity: 0;
+  }
 
-/* Rotate last bar */
-.Bar:nth-child(3).Active {
-  transform: rotate(45deg) translate(-8px, -8px);
+  /* Rotate last bar */
+  &:nth-child(3).Active {
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
   .Bar {
-    width: 100%;
-    height: 5px;
-    background-color: white;
-    border-radius: 50px;
     transition: none;
   }
 }

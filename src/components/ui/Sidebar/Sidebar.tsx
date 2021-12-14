@@ -20,17 +20,16 @@ const Sidebar: FC<SidebarProps> = function ({
   }
 
   return (
-    <div className={styles.wrapper} onKeyDown={onKeyDownSidebar}>
-      <aside
-        className={
-          isSidebarVisible
-            ? cn(styles.sideDrawer, styles.visible)
-            : styles.sideDrawer
-        }
-      >
-        {children}
-      </aside>
-    </div>
+    <aside
+      className={
+        isSidebarVisible
+          ? cn(styles.sideDrawer, styles.visible)
+          : styles.sideDrawer
+      }
+      onKeyDown={onKeyDownSidebar}
+    >
+      {children}
+    </aside>
   )
 }
 
