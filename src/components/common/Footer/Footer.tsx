@@ -25,7 +25,12 @@ const Footer: FC = function () {
           </div>
           <div>
             <h2 className={styles.ColumnHeader}>Get in Contact</h2>
-            <form name="contact" method="POST" data-netlify="true">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-recaptcha="true"
+            >
               <input
                 className={styles.Input}
                 type="hidden"
