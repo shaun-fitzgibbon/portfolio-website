@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import styles from './MobileMenuToggle.module.css'
+import styles from './MobileMenuToggle.module.scss'
 
 interface ToggleProps {
   onClick: () => void
