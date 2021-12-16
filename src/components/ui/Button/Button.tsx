@@ -1,4 +1,10 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
+import {
+  ElementType,
+  ReactNode,
+  forwardRef,
+  Ref,
+  ComponentPropsWithRef,
+} from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
 
@@ -8,16 +14,19 @@ type ButtonProps<T extends ElementType> = {
   isCompleted?: boolean
   size?: 'Small' | 'Medium' | 'Large'
   children: ReactNode
-} & ComponentPropsWithoutRef<T>
+} & ComponentPropsWithRef<T>
 
-const Button = <T extends ElementType = 'button'>({
-  renderAs,
-  isLoading,
-  isCompleted,
-  size = 'Medium',
-  children,
-  ...rest
-}: ButtonProps<T>): JSX.Element => {
+const Button = <T extends ElementType = 'button'>(
+  {
+    renderAs,
+    isLoading,
+    isCompleted,
+    size = 'Medium',
+    children,
+    ...rest
+  }: ButtonProps<T>,
+  ref: Ref<T>
+): JSX.Element => {
   const Component = renderAs || 'button'
 
   return (
@@ -27,6 +36,7 @@ const Button = <T extends ElementType = 'button'>({
         styles[`Button${size}`],
         isLoading && styles.Loading
       )}
+      ref={ref}
       as={renderAs}
       {...rest}
     >
@@ -35,4 +45,4 @@ const Button = <T extends ElementType = 'button'>({
   )
 }
 
-export default Button
+export default forwardRef(Button)
