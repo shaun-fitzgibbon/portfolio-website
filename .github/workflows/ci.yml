@@ -30,7 +30,7 @@ jobs:
           cache: 'yarn'
 
       - name: Installing dependencies
-        run: yarn install
+        run: yarn install --check-cache
 
       - name: Running ESLint Linter
         run: yarn lint
