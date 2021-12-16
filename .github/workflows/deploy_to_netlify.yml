@@ -25,8 +25,8 @@ jobs:
           node --version
           yarn --version
 
-      - name: Installing dependencies
-        run: yarn install
+      # - name: Installing dependencies
+      #   run: yarn install
 
       - name: 🏗️ Performing Netlify & NextJS build
         env:

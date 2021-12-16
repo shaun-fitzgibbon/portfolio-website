@@ -38,14 +38,14 @@ yarn-error.log*
 
 ### yarn ###
 # https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
-.pnp.*
+
 .yarn/*
+!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
 
 .DS_Store
 
