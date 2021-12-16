@@ -5,7 +5,10 @@ import {
   useMemo,
   useReducer,
   useCallback,
+  useEffect,
+  useState,
 } from 'react'
+import debounce from 'lodash.debounce'
 
 export interface StateModifiers {
   openSidebar: () => void
@@ -16,12 +19,16 @@ export interface StateModifiers {
 
 export interface StateValues {
   isSidebarOpen: boolean
+  isNavbarVisible: boolean
+  isPageScrolled: boolean
 }
 
 type State = StateValues & StateModifiers
 
 const initialState = {
   isSidebarOpen: false,
+  isNavbarVisible: true,
+  isPageScrolled: false,
 }
 
 const stateModifires = {
@@ -38,10 +45,44 @@ const UIContext = createContext<State>({
 
 UIContext.displayName = 'UIContext'
 
-type Action = { type: 'OPEN_SIDEBAR' | 'CLOSE_SIDEBAR' }
+type Action = {
+  type:
+    | 'SHOW_NAVBAR'
+    | 'REMOVE_NAVBAR'
+    | 'SET_PAGE_SCROLLED'
+    | 'REMOVE_PAGE_SCROLLED'
+    | 'OPEN_SIDEBAR'
+    | 'CLOSE_SIDEBAR'
+}
 
 function uiReducer(state: StateValues, action: Action) {
   switch (action.type) {
+    case 'SHOW_NAVBAR': {
+      return {
+        ...state,
+        isNavbarVisible: true,
+      }
+    }
+
+    case 'REMOVE_NAVBAR': {
+      return {
+        ...state,
+        isNavbarVisible: false,
+      }
+    }
+    case 'SET_PAGE_SCROLLED': {
+      return {
+        ...state,
+        isPageScrolled: true,
+      }
+    }
+    case 'REMOVE_PAGE_SCROLLED': {
+      return {
+        ...state,
+        isPageScrolled: false,
+      }
+    }
+
     case 'OPEN_SIDEBAR': {
       return {
         ...state,
@@ -60,6 +101,7 @@ function uiReducer(state: StateValues, action: Action) {
 
 export const UIProvider: FC = ({ children }, ...rest) => {
   const [state, dispatch] = useReducer(uiReducer, initialState)
+  const [prevScrollPosition, setPrevScrollPosition] = useState(0)
 
   const openSidebar = useCallback(
     () => dispatch({ type: 'OPEN_SIDEBAR' }),
@@ -83,6 +125,43 @@ export const UIProvider: FC = ({ children }, ...rest) => {
     () => state.isSidebarOpen && dispatch({ type: 'CLOSE_SIDEBAR' }),
     [dispatch, state.isSidebarOpen]
   )
+
+  const handleScroll = useCallback(() => {
+    const currentScrollPosition = window.scrollY
+
+    if (currentScrollPosition > 0) {
+      dispatch({ type: 'SET_PAGE_SCROLLED' })
+    } else {
+      dispatch({ type: 'REMOVE_PAGE_SCROLLED' })
+    }
+
+    if (
+      (prevScrollPosition > currentScrollPosition &&
+        prevScrollPosition - currentScrollPosition > 70) ||
+      currentScrollPosition < 600
+    ) {
+      dispatch({ type: 'SHOW_NAVBAR' })
+    } else {
+      dispatch({ type: 'REMOVE_NAVBAR' })
+    }
+
+    setPrevScrollPosition(currentScrollPosition)
+    console.log(prevScrollPosition)
+    console.log(currentScrollPosition)
+  }, [prevScrollPosition])
+
+  const debouncedHandleScroll = useMemo(
+    () => debounce(handleScroll, 300),
+    [handleScroll]
+  )
+
+  useEffect(() => {
+    window.addEventListener('scroll', debouncedHandleScroll)
+    return () => {
+      window.removeEventListener('scroll', debouncedHandleScroll)
+      debouncedHandleScroll.cancel
+    }
+  }, [prevScrollPosition, state.isNavbarVisible, debouncedHandleScroll])
 
   const value = useMemo(() => {
     return {
