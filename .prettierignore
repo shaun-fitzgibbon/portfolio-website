@@ -10,9 +10,12 @@ coverage
 
 # Ignore YARN:
 .yarn
+.pnp.cjs
+.pnp.loader.mjs
 
 # Ignore node_modules:
 node_modules
+
 
 eslint_report.json
 
