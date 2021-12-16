@@ -14,11 +14,12 @@
   "dependencies": {
     "body-scroll-lock": "^4.0.0-beta.0",
     "classnames": "^2.3.1",
-    "esbuild": "^0.14.2",
+    "esbuild": "0.13",
     "gray-matter": "^4.0.3",
     "lodash.debounce": "^4.0.8",
     "mdx-bundler": "^8.0.0",
     "next": "^12.0.7",
+    "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
     "reading-time": "^1.5.0",
