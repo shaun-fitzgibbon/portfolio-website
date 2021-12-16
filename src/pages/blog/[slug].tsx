@@ -17,17 +17,21 @@ const Post: NextPage = ({
   // it's generally a good idea to memoize this function call to
   // avoid re-creating the component every render.
   const Component = useMemo(() => getMDXComponent(code), [code])
+
   return (
     <Container>
-      <header>
+      <header style={{ maxWidth: '80ch', margin: '0 auto' }}>
         <h1>{frontmatter.title}</h1>
         <p>{frontmatter.description}</p>
         <p>{frontmatter.date}</p>
+        <p>{frontmatter.wordCount}</p>
+        <p>{frontmatter.readingTime.text}</p>
+        <p>{frontmatter.slug}</p>
       </header>
-      <article>
+      <article style={{ maxWidth: '80ch', margin: '0 auto' }}>
         <Component
         // components={{
-        //   a: CustomLink,
+        //   Button,
         // }}
         />
       </article>

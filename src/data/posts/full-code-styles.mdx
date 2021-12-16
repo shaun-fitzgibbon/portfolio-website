@@ -1,5 +1,5 @@
 ---
-title: 'First post'
+title: 'Full Code Styles'
 description: 'Hello World Blog'
 date: '2021-08-03'
 isPublished: true
@@ -49,9 +49,9 @@ This is an my first post. There's another one [here](/posts/post-with-cool-compo
 ## TABLE
 
 | Header 1 | Header 2 | Header 3 | Header 4 |
-| -------- | :------- | -------: | :------: |
-| baz      | qux      |      baz |   qux    |
-| baz      | qux      |      baz |   qux    |
+| -------- | :------- | :------: | -------: |
+| baz      | qux      |   baz    |      qux |
+| baz      | qux      |   baz    |      qux |
 
 ### CODE BLOCK
 
@@ -65,7 +65,7 @@ code
 
 ### PRE CODE
 
-```js{4-7,9}
+```js:/src/hello.ts {4-7,9} showLineNumbers
 export const getSinglePost = async (slug) => {
   const source = getSourceOfFile(slug + '.mdx')
 

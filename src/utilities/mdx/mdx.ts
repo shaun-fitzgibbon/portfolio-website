@@ -2,14 +2,18 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
+import readingTime from 'reading-time'
 
-// import mdxPrism from 'mdx-prism'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeCodeTitle from 'rehype-code-titles'
+import rehypePrism from 'rehype-prism-plus'
+// import rehypeSanitize from 'rehype-sanitize'
+import rehypeSlug from 'rehype-slug'
+
+import remarkGfm from 'remark-gfm'
 // import remarkParse from 'remark-parse'
-// import remark2Rehype from 'remark-rehype'
-// import remarkAutolinkHeadings from 'remark-autolink-headings'
-// import remarkSlug from 'remark-slug'
-// import remarkCodeTitles from 'remark-code-titles'
-// import remarkGfm from 'remark-gfm'
+// import remarkRehype from 'remark-rehype'
+// import remarkStringify from 'remark-stringify'
 
 export const ROOT = process.cwd()
 export const POSTS_PATH = path.join(process.cwd(), 'src/data/posts')
@@ -35,21 +39,32 @@ const getCompiledMDX = async (content: string) => {
       'esbuild'
     )
   }
-  // Add your remark and rehype plugins here
-  const remarkPlugins: [] = []
-  const rehypePlugins: [] = []
 
   try {
     return await bundleMDX({
       source: content,
-      xdmOptions(options) {
+      xdmOptions: (options) => {
         options.remarkPlugins = [
           ...(options.remarkPlugins ?? []),
-          ...remarkPlugins,
+          // remarkParse,
+          remarkGfm,
+          // remarkRehype,
+          // remarkStringify
         ]
         options.rehypePlugins = [
           ...(options.rehypePlugins ?? []),
-          ...rehypePlugins,
+          rehypeSlug,
+          rehypeCodeTitle,
+          rehypePrism,
+          [
+            rehypeAutolinkHeadings,
+            {
+              properties: {
+                className: ['anchor'],
+              },
+            },
+          ],
+          // rehypeSanitize,
         ]
 
         return options
@@ -83,8 +98,15 @@ export const getSinglePost = async (slug: string) => {
   const source = getFileContent(`${slug}.mdx`)
   const { code, frontmatter } = await getCompiledMDX(source)
 
+  const reading = readingTime(source)
+
   return {
-    frontmatter,
     code,
+    frontmatter: {
+      wordCount: source.split(/\s+/gu).length,
+      readingTime: reading,
+      slug: slug || null,
+      ...frontmatter,
+    },
   }
 }

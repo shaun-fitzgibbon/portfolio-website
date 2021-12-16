@@ -5,11 +5,11 @@ date: '2021-08-03'
 isPublished: false
 ---
 
-```js{4-7,9}
+```js:/src/hello.ts {4-7,9} showLineNumbers
 export const getSinglePost = async (slug) => {
-  const source = getSourceOfFile(slug + '.mdx')
+    const source = getSourceOfFile(slug + '.mdx')
 
-  const { code, frontmatter } = await bundleMDX(source, {
+    const { code, frontmatter } = await bundleMDX(source, {
     cwd: POSTS_PATH,
     xdmOptions(options) {
       // this is the recommended way to add custom remark/rehype plugins:
@@ -17,9 +17,9 @@ export const getSinglePost = async (slug) => {
       // plugins in the future.
       options.remarkPlugins = [
         ...(options.remarkPlugins ?? []),
-        //   remarkAutolinkHeadings,
-        //  remarkSlug,
-        //   remarkCodeTitle,
+          remarkAutolinkHeadings,
+         remarkSlug,
+          remarkCodeTitle,
       ]
       options.rehypePlugins = [...(options.rehypePlugins ?? []), mdxPrism]
 
