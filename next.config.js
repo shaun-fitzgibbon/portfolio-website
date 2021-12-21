@@ -4,6 +4,6 @@ module.exports = {
   generateBuildId: () => 'build',
   sassOptions: {
     includePaths: ['./src'],
-    prependData: `@import "@assets/styles/main.scss";`,
+    prependData: '@import "@assets/styles/main.scss";',
   },
 }
