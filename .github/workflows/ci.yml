@@ -68,7 +68,7 @@ jobs:
       - name: 🚀 Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
-          publish-dir: '.next'
+          publish-dir: .next
           production-branch: main
           production-deploy: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -77,7 +77,7 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
           netlify-config-path: ./netlify.toml
-          functions-dir: ./.netlify/functions-internal
+          functions-dir: ./.netlify/functions
           alias: deploy-preview-${{ github.event.number }}
           github-deployment-environment: Preview
           github-deployment-description: This is a Preview Deployment
