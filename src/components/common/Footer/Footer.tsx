@@ -1,4 +1,6 @@
+import { Dribbble, Github, Linkedin, Twitter, Youtube } from '@components/icons'
 import { Button, Container, Logo } from '@components/ui'
+import Link from 'next/link'
 import { FC } from 'react'
 import styles from './Footer.module.css'
 
@@ -16,11 +18,47 @@ const Footer: FC = function () {
           <div>
             <h2 className={styles.ColumnHeader}>Follow Me</h2>
             <ul>
-              <li>Github</li>
-              <li>Dribbble</li>
-              <li>Twitter</li>
-              <li>LinkedIN</li>
-              <li>YouTube</li>
+              <li>
+                <Link href="https://github.com/Sfitzg" passHref>
+                  <a target="_blank">
+                    <Github /> Github
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://dribbble.com/Sfitzg" passHref>
+                  <a target="_blank">
+                    <Dribbble /> Dribbble
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://twitter.com/Shaun_FitzG" passHref>
+                  <a target="_blank">
+                    <Twitter /> Twitter
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.linkedin.com/in/shaun-fitzgibbon-233a9133/"
+                  passHref
+                >
+                  <a target="_blank">
+                    <Linkedin /> LinkedIN
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.youtube.com/channel/UCietrTpJj5zVvojRY61D5dg"
+                  passHref
+                >
+                  <a target="_blank">
+                    <Youtube /> YouTube
+                  </a>
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
