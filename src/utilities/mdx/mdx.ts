@@ -22,7 +22,7 @@ export const getFileContent = (filename: string) => {
   return fs.readFileSync(path.join(POSTS_PATH, filename), 'utf8')
 }
 
-const getCompiledMDX = async (content: string) => {
+const getCompiledMDX = async (mdxSource: string) => {
   if (process.platform === 'win32') {
     process.env.ESBUILD_BINARY_PATH = path.join(
       ROOT,
@@ -42,7 +42,8 @@ const getCompiledMDX = async (content: string) => {
 
   try {
     return await bundleMDX({
-      source: content,
+      source: mdxSource,
+      cwd: POSTS_PATH,
       xdmOptions: (options) => {
         options.remarkPlugins = [
           ...(options.remarkPlugins ?? []),
@@ -83,9 +84,9 @@ export const getAllPosts = () => {
     .readdirSync(POSTS_PATH)
     .filter((path) => /\.mdx?$/.test(path))
     .map((fileName) => {
-      const source = getFileContent(fileName)
+      const mdxSource = getFileContent(fileName)
       const slug = fileName.replace(/\.mdx?$/, '')
-      const { data } = matter(source)
+      const { data } = matter(mdxSource)
 
       return {
         frontmatter: data,
@@ -95,15 +96,15 @@ export const getAllPosts = () => {
 }
 
 export const getSinglePost = async (slug: string) => {
-  const source = getFileContent(`${slug}.mdx`)
-  const { code, frontmatter } = await getCompiledMDX(source)
+  const mdxSource = getFileContent(`${slug}.mdx`)
+  const { code, frontmatter } = await getCompiledMDX(mdxSource)
 
-  const reading = readingTime(source)
+  const reading = readingTime(mdxSource)
 
   return {
     code,
     frontmatter: {
-      wordCount: source.split(/\s+/gu).length,
+      wordCount: mdxSource.split(/\s+/gu).length,
       readingTime: reading,
       slug: slug || null,
       ...frontmatter,
