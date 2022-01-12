@@ -6,9 +6,11 @@ import type {
   NextPage,
 } from 'next'
 import { getMDXComponent } from 'mdx-bundler/client'
+import styles from 'assets/styles/[slug].module.scss'
 
-import { getAllPosts, getSinglePost } from '@utilities/mdx'
-import { Container } from '@components/ui'
+import { getAllPosts, getSinglePost } from 'utilities/mdx'
+import { Container } from 'components'
+import { Calendar, Clock } from 'components/icons'
 
 const Post: NextPage = ({
   code,
@@ -23,15 +25,19 @@ const Post: NextPage = ({
       <header style={{ maxWidth: '80ch', margin: '0 auto' }}>
         <h1>{frontmatter.title}</h1>
         <p>{frontmatter.description}</p>
-        <p>{frontmatter.date}</p>
-        <p>{frontmatter.wordCount}</p>
-        <p>{frontmatter.readingTime.text}</p>
+        <div className={styles.Info}>
+          <Calendar />
+          <p>{frontmatter.date}</p>
+          <p>{frontmatter.wordCount} words</p>
+          <Clock />
+          <p>{frontmatter.readingTime.text}</p>
+        </div>
         <p>{frontmatter.slug}</p>
       </header>
       <article style={{ maxWidth: '80ch', margin: '0 auto' }}>
         <Component
         // components={{
-        //   Button,
+        //   img: NextImage,
         // }}
         />
       </article>
