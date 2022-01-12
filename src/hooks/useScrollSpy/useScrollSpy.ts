@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 
-export const useScrollspy = (
-  elements: Element[],
+export const useScrollSpy = (
+  elements: (Element | null)[],
   options?: {
-    offset?: number
     root?: Element
+    offset?: number
+    threshold?: number
   }
-): [number | Element[] | number[]] => {
+): [number | Element[] | number[] | null] => {
   const [currentIntersectingElementIndex, setCurrentIntersectingElementIndex] =
     useState(-1)
 
@@ -21,6 +22,7 @@ export const useScrollspy = (
 
     observer.current = new IntersectionObserver(
       (entries) => {
+        console.log(entries)
         // find the index of the section that is currently intersecting
         const indexOfElementIntersecting = entries.findIndex((entry) => {
           // if intersection > 0 it means entry is intersecting with the view port
@@ -34,15 +36,17 @@ export const useScrollspy = (
         root: (options && options.root) || null,
         // use this option to handle custom offset
         rootMargin,
+        threshold: options && options.threshold,
       }
     )
 
     const { current: currentObserver } = observer
 
     // observe all the elements passed as argument of the hook
-    elements.forEach((element) =>
-      element ? currentObserver.observe(element) : null
-    )
+    elements &&
+      elements.forEach((element) =>
+        element ? currentObserver.observe(element) : null
+      )
 
     return () => currentObserver.disconnect()
   }, [elements, options, rootMargin])
