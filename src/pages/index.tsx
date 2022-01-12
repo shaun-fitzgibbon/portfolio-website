@@ -1,9 +1,9 @@
 import type { InferGetStaticPropsType, GetStaticProps, NextPage } from 'next'
 
-import styles from '@assets/styles/Home.module.scss'
-import { Button, Container, Grid } from '@components/ui'
-import { ProjectCard } from '@components/projects'
+import styles from 'assets/styles/Home.module.scss'
+import { Button, Container, Grid, ProjectCard } from 'components'
 import { projects, Project } from '../data/projects/projects'
+import { skills, Skill } from '../data/skills/skills'
 
 const Home: NextPage = function ({
   projects,
@@ -13,7 +13,9 @@ const Home: NextPage = function ({
       <section className={styles.HeroSection}>
         <Container>
           <h1 className={styles.Title}>
-            Hi, I&apos;m <br /> Shaun Fitzgibbon <br /> I&apos;m a web developer
+            Hi, I&apos;m <br />{' '}
+            <span className={styles.Name}>Shaun Fitzgibbon</span> <br />{' '}
+            I&apos;m a web developer
           </h1>
 
           <p className={styles.Description}>
@@ -29,7 +31,12 @@ const Home: NextPage = function ({
             >
               About me
             </Button>{' '}
-            <Button size="Medium" renderAs={'a'} href="#about-section">
+            <Button
+              isLoading={true}
+              size="Medium"
+              renderAs={'a'}
+              href="#about-section"
+            >
               About me
             </Button>{' '}
             <Button size="Large" renderAs={'a'} href="#about-section">
@@ -38,6 +45,7 @@ const Home: NextPage = function ({
           </div>
         </Container>
       </section>
+
       <section className={styles.AboutSection} id="about-section">
         <Container>
           <header>
@@ -53,6 +61,7 @@ const Home: NextPage = function ({
           </div>
         </Container>
       </section>
+
       <section className={styles.ProjectsSection} id="projects-section">
         <Container>
           <header>
@@ -65,11 +74,19 @@ const Home: NextPage = function ({
           </Grid>
         </Container>
       </section>
+
       <section className={styles.SkillsSection} id="skills-section">
         <Container>
           <header>
             <h2 className={styles.SectionTitle}>Skills</h2>
           </header>
+          <div>
+            {skills.map((skill: Skill) => (
+              <div key={skill.id}>
+                <h3>{skill.name}</h3>
+              </div>
+            ))}
+          </div>
         </Container>
       </section>
     </>
