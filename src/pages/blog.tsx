@@ -1,9 +1,7 @@
-import { FC } from 'react'
 import Head from 'next/head'
 
-import { getAllPosts } from '@utilities/mdx'
-import { Container } from '@components/ui'
-import { BlogPost } from '@components/blog'
+import { getAllPosts } from 'utilities/mdx'
+import { Container, BlogPost } from 'components'
 
 export type Frontmatter = {
   slug: string
@@ -17,7 +15,11 @@ type Post = {
   frontmatter: Frontmatter
 }
 
-const Blog: FC<{ posts: Post[] }> = ({ posts }) => {
+type Posts = {
+  posts: Post[]
+}
+
+const Blog = ({ posts }: Posts) => {
   return (
     <Container>
       <Head>
