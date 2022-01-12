@@ -14768,7 +14768,7 @@ __metadata:
     remark-sectionize: ^1.1.1
     remark-stringify: ^10.0.2
     sass: ^1.45.1
-    static: "link:./public"
+    static: "link:./public/static"
     stylelint: ^14.2.0
     stylelint-a11y: ^1.2.3
     stylelint-color-format: ^1.1.0
@@ -17313,9 +17313,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"static@link:./public::locator=personal-portfolio%40workspace%3A.":
+"static@link:./public/static::locator=personal-portfolio%40workspace%3A.":
   version: 0.0.0-use.local
-  resolution: "static@link:./public::locator=personal-portfolio%40workspace%3A."
+  resolution: "static@link:./public/static::locator=personal-portfolio%40workspace%3A."
   languageName: node
   linkType: soft
 
