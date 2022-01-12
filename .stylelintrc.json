@@ -1,13 +1,11 @@
 {
   "plugins": [
-    "stylelint-scss",
-    "stylelint-order",
     "stylelint-color-format",
     "stylelint-declaration-block-no-ignored-properties",
     "stylelint-a11y"
   ],
   "extends": [
-    "stylelint-config-standard-scss",
+    "stylelint-config-sass-guidelines",
     "stylelint-config-css-modules",
     "stylelint-config-idiomatic-order",
     "stylelint-a11y/recommended",
