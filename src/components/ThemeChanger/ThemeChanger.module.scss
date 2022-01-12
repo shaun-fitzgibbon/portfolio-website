@@ -1,0 +1,13 @@
+.Button {
+  // "w-8 h-8 p-1 ml-1 mr-1 rounded sm:ml-4"
+  background: hsl(120, 100%, 25%);
+}
+
+.Image {
+  //"text-gray-900 dark:text-gray-100"
+  color: hsl(0, 0%, 50%);
+
+  [data-theme='dark'] {
+    color: hsl(350, 100%, 88%);
+  }
+}
