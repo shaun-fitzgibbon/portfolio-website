@@ -1,0 +1,66 @@
+.List {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+.Social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding: 10px 0;
+  color: hsl(0, 0%, 100%);
+  transition: none;
+
+  &:hover, &:focus {
+    color: hsl(338deg 52% 58%);
+    transform: scale(120%) translateX(10%);
+  }
+}
+}
+
+.Social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding: 10px 0;
+  color: hsl(0, 0%, 100%);
+  transition: transform 1s ease;
+
+  &:hover, &:focus {
+    color: hsl(338deg 52% 58%);
+    transform: scale(120%) translateX(10%);
+  }
+}
+
+.Icon {
+  width: 30px;
+  height: 30px;
+}
+
+.Text {
+  margin-left: 5px;
+}
+
+.GithubIcon {
+  color: hsl(0, 0%, 100%);
+}
+
+.DribbbleIcon {
+  color: hsl(337, 79%, 61%);
+}
+
+.TwitterIcon {
+  color: hsl(199, 93%, 47%);
+}
+
+.LinkedinIcon {
+  color: hsl(0, 0%, 100%);
+}
+
+.YoutubeIcon {
+  color: hsl(2, 64%, 47%);
+}
