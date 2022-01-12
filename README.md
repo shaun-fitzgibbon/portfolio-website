@@ -1,5 +1,7 @@
 # Shaun Fitzgibbon Personal Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/485e35ed-23f9-4f33-92fb-557e90898e54/deploy-status)](https://app.netlify.com/sites/shauns-portfolio/deploys)
+
 ## 👨‍💻 Website
 
 Check out the website: [WEBSITE](http://shauns-portfolio.netlify.app/)
