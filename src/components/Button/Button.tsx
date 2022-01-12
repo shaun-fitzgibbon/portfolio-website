@@ -6,13 +6,14 @@ import {
   ComponentPropsWithRef,
 } from 'react'
 import cn from 'classnames'
-import styles from './Button.module.scss'
+import s from './Button.module.scss'
 
 type ButtonProps<T extends ElementType> = {
   renderAs?: T
   isLoading?: boolean
   isCompleted?: boolean
   size?: 'Small' | 'Medium' | 'Large'
+  fullwidth?: boolean
   children: ReactNode
 } & ComponentPropsWithRef<T>
 
@@ -22,6 +23,7 @@ const Button = <T extends ElementType = 'button'>(
     isLoading,
     isCompleted,
     size = 'Medium',
+    fullwidth = false,
     children,
     ...rest
   }: ButtonProps<T>,
@@ -32,15 +34,22 @@ const Button = <T extends ElementType = 'button'>(
   return (
     <Component
       className={cn(
-        styles.Button,
-        styles[`Button${size}`],
-        isLoading && styles.Loading
+        s.Button,
+        s[`Button${size}`],
+        isLoading && s.Loading,
+        fullwidth && s.Fullwidth
       )}
       ref={ref}
       as={renderAs}
       {...rest}
     >
-      {isCompleted ? 'Complete' : children}
+      {isLoading ? (
+        <span className={s.ButtonText}>Loading...</span>
+      ) : isCompleted ? (
+        'Complete'
+      ) : (
+        children
+      )}
     </Component>
   )
 }

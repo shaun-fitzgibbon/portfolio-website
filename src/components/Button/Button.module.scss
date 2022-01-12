@@ -1,9 +1,12 @@
 .Button {
   position: relative;
-  width: 100%;
-  border: none;
+  display: inline-block;
+  overflow: hidden;
+
+  // width: 100%;
+  border: unset;
   background-color: hsl(338deg 79% 64%);
-  color: white;
+  color: hsl(0, 0%, 100%);
   outline: none;
   transition: background-color 0.3s ease-in-out;
 
@@ -20,6 +23,10 @@
     background: hsl(338deg 51% 32%);
     cursor: not-allowed;
   }
+}
+
+.ButtonText {
+  position: relative;
 }
 
 .ButtonSmall {
@@ -40,52 +47,45 @@
   font-size: larger;
 }
 
+.Fullwidth {
+  display: block;
+  width: 100%;
+}
+
 .Loading {
-  position: relative;
-  height: 100%;
   cursor: wait;
-  @media screen and (prefers-reduced-motion: reduce) {
-    &::before {
-      left: -100%;
-      width: 400%;
-      height: 100%;
-      animation: none;
-      background: green
-        repeating-linear-gradient(
-          60deg,
-          transparent,
-          transparent 10px,
-          blue 5px,
-          blue 20px
-        );
-      content: '';
-    }
-  }
 
   &::before {
-    left: -100%;
-    width: 400%;
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 150%;
     height: 100%;
-    animation: loading-animation 2s infinite linear;
-    background: green
+    animation: loading-animation 1s infinite linear;
+    background: hsl(338deg 52% 58%)
       repeating-linear-gradient(
         60deg,
         transparent,
         transparent 10px,
-        blue 5px,
-        blue 20px
+        rgb(230, 129, 166) 5px,
+        rgb(230, 129, 166) 20px
       );
     content: '';
+  }
+  @media screen and (prefers-reduced-motion: reduce) {
+    &::before {
+      animation: none;
+    }
   }
 }
 
 @keyframes loading-animation {
   0% {
-    transform: translateX(25px);
+    transform: translateX(0);
   }
 
   100% {
-    transform: translateX(-20px);
+    transform: translateX(-23px);
   }
 }
 
