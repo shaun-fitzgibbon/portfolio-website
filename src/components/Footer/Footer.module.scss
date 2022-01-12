@@ -1,15 +1,15 @@
 .Footer {
-  display: flex;
-  height: fit-content;
-  flex: 1;
-  flex-direction: column;
   align-items: left;
-  justify-content: space-between;
-  padding-top: 50px;
-  border-top: 1px solid hsl(0, 0%, 92%);
   background-color: hsl(212, 46%, 11%);
+  border-top: 1px solid hsl(0, 0%, 92%);
   clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
   color: hsl(0, 0%, 100%);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: fit-content;
+  justify-content: space-between;
+  padding-top: 50px;
 }
 
 .TopContent {
@@ -17,15 +17,15 @@
 }
 
 .MiddleContent {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   padding: 20px 0;
 
   .Column {
-    width: 100%;
     padding: 10px 20px;
+    width: 100%;
   }
 
   .ColumnHeader {
@@ -35,28 +35,28 @@
 }
 
 .BottomWrapper {
-  display: flex;
-  width: 100%;
-  height: 50px;
   align-items: center;
-  justify-content: right;
-  border-top: 1px solid hsl(213deg 46% 14%);
   background-color: hsl(213deg 48% 9%);
+  border-top: 1px solid hsl(213deg 46% 14%);
+  display: flex;
   font-size: 12px;
+  height: 50px;
+  justify-content: right;
+  width: 100%;
 }
 
 .BottomContent {
-  display: flex;
-  height: 100%;
-  flex-direction: row;
-  justify-content: center;
   color: hsl(0, 1%, 72%);
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: center;
 }
 
 @media screen and (min-width: 600px) {
   .MiddleContent {
-    flex-direction: row;
     align-items: baseline;
+    flex-direction: row;
     justify-content: space-between;
 
     .Column {
@@ -67,7 +67,7 @@
 
 @media screen and (min-width: 1024px) {
   .Footer {
-    padding-top: 50px;
     clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+    padding-top: 50px;
   }
 }

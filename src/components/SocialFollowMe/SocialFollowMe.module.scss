@@ -1,44 +1,46 @@
 .List {
-  padding: 0;
-  margin: 0;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
-.Social {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  padding: 10px 0;
-  color: hsl(0, 0%, 100%);
-  transition: none;
+  .Social {
+    align-items: center;
+    color: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 10px 0;
+    transition: none;
 
-  &:hover, &:focus {
-    color: hsl(338deg 52% 58%);
-    transform: scale(120%) translateX(10%);
+    &:hover,
+    &:focus {
+      color: hsl(338deg 52% 58%);
+      transform: scale(120%) translateX(10%);
+    }
   }
 }
-}
 
 .Social {
+  align-items: center;
+  color: hsl(0, 0%, 100%);
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: left;
   padding: 10px 0;
-  color: hsl(0, 0%, 100%);
   transition: transform 1s ease;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: hsl(338deg 52% 58%);
     transform: scale(120%) translateX(10%);
   }
 }
 
 .Icon {
-  width: 30px;
   height: 30px;
+  width: 30px;
 }
 
 .Text {

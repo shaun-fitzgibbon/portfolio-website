@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import styles from './Backdrop.module.css'
+import styles from './Backdrop.module.scss'
 
 type Props = {
   children: ReactNode

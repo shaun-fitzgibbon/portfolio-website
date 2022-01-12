@@ -1,9 +1,9 @@
 .Container {
-  width: 100%;
-  max-width: 1200px;
   height: 100%;
-  padding: 0 0.8rem;
   margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 0.8rem;
+  width: 100%;
 }
 
 @media screen and (min-width: 600px) {
