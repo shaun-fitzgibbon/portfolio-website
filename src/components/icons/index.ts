@@ -1,3 +1,5 @@
+export { default as Calendar } from './Calendar'
+export { default as Clock } from './Clock'
 export { default as Dribbble } from './Dribbble'
 export { default as Github } from './Github'
 export { default as Linkedin } from './Linkedin'
