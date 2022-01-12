@@ -4,15 +4,19 @@ import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import readingTime from 'reading-time'
 
+// Rehype Packages
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeCodeTitle from 'rehype-code-titles'
-import rehypePrism from 'rehype-prism-plus'
+import rehypeCitation from 'rehype-citation'
+import rehypePrismPlus from 'rehype-prism-plus'
 // import rehypeSanitize from 'rehype-sanitize'
 import rehypeSlug from 'rehype-slug'
 
+// Remark Packages
 import remarkGfm from 'remark-gfm'
 // import remarkParse from 'remark-parse'
 // import remarkRehype from 'remark-rehype'
+// import { remarkSectionize } from 'remark-sectionize'
 // import remarkStringify from 'remark-stringify'
 
 export const ROOT = process.cwd()
@@ -51,12 +55,20 @@ const getCompiledMDX = async (mdxSource: string) => {
           remarkGfm,
           // remarkRehype,
           // remarkStringify
+          // remarkSectionize,
         ]
         options.rehypePlugins = [
           ...(options.rehypePlugins ?? []),
           rehypeSlug,
           rehypeCodeTitle,
-          rehypePrism,
+          [
+            rehypeCitation,
+            // {
+            //   bibliography: frontmatter?.bibliography,
+            //   path: path.join(root, 'data'),
+            // },
+          ],
+          [rehypePrismPlus, { ignoreMissing: true }],
           [
             rehypeAutolinkHeadings,
             {
