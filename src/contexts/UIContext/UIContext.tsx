@@ -11,6 +11,8 @@ import {
 import debounce from 'lodash.debounce'
 
 export interface StateModifiers {
+  showNavbar: () => void
+  hideNavbar: () => void
   openSidebar: () => void
   closeSidebar: () => void
   toggleSidebar: () => void
@@ -32,6 +34,8 @@ const initialState = {
 }
 
 const stateModifires = {
+  showNavbar: () => null,
+  hideNavbar: () => null,
   openSidebar: () => null,
   closeSidebar: () => null,
   toggleSidebar: () => null,
@@ -48,7 +52,7 @@ UIContext.displayName = 'UIContext'
 type Action = {
   type:
     | 'SHOW_NAVBAR'
-    | 'REMOVE_NAVBAR'
+    | 'HIDE_NAVBAR'
     | 'SET_PAGE_SCROLLED'
     | 'REMOVE_PAGE_SCROLLED'
     | 'OPEN_SIDEBAR'
@@ -64,7 +68,7 @@ function uiReducer(state: StateValues, action: Action) {
       }
     }
 
-    case 'REMOVE_NAVBAR': {
+    case 'HIDE_NAVBAR': {
       return {
         ...state,
         isNavbarVisible: false,
@@ -102,6 +106,16 @@ function uiReducer(state: StateValues, action: Action) {
 export const UIProvider: FC = ({ children }, ...rest) => {
   const [state, dispatch] = useReducer(uiReducer, initialState)
   const [prevScrollPosition, setPrevScrollPosition] = useState(0)
+
+  const showNavbar = useCallback(
+    () => state.isNavbarVisible && dispatch({ type: 'SHOW_NAVBAR' }),
+    [dispatch, state.isNavbarVisible]
+  )
+
+  const hideNavbar = useCallback(
+    () => state.isNavbarVisible && dispatch({ type: 'HIDE_NAVBAR' }),
+    [dispatch, state.isNavbarVisible]
+  )
 
   const openSidebar = useCallback(
     () => dispatch({ type: 'OPEN_SIDEBAR' }),
@@ -142,12 +156,10 @@ export const UIProvider: FC = ({ children }, ...rest) => {
     ) {
       dispatch({ type: 'SHOW_NAVBAR' })
     } else {
-      dispatch({ type: 'REMOVE_NAVBAR' })
+      dispatch({ type: 'HIDE_NAVBAR' })
     }
 
     setPrevScrollPosition(currentScrollPosition)
-    console.log(prevScrollPosition)
-    console.log(currentScrollPosition)
   }, [prevScrollPosition])
 
   const debouncedHandleScroll = useMemo(
@@ -166,12 +178,22 @@ export const UIProvider: FC = ({ children }, ...rest) => {
   const value = useMemo(() => {
     return {
       ...state,
+      showNavbar,
+      hideNavbar,
       openSidebar,
       closeSidebar,
       toggleSidebar,
       closeSidebarIfPresent,
     }
-  }, [state, openSidebar, closeSidebar, toggleSidebar, closeSidebarIfPresent])
+  }, [
+    state,
+    showNavbar,
+    hideNavbar,
+    openSidebar,
+    closeSidebar,
+    toggleSidebar,
+    closeSidebarIfPresent,
+  ])
 
   return (
     <UIContext.Provider value={value} {...rest}>
