@@ -14024,7 +14024,6 @@ __metadata:
     rehype-slug: ^5.0.0
     remark-gfm: ^3.0.1
     remark-rehype: ^10.1.0
-    remark-sectionize: ^1.1.1
     remark-stringify: ^10.0.2
     sass: ^1.45.1
     static: "link:./public/static"
@@ -15173,16 +15172,6 @@ __metadata:
     mdast-util-to-hast: ^12.1.0
     unified: ^10.0.0
   checksum: b9ac8acff3383b204dfdc2599d0bdf86e6ca7e837033209584af2e6aaa6a9013e519a379afa3201299798cab7298c8f4b388de118c312c67234c133318aec084
-  languageName: node
-  linkType: hard
-
-"remark-sectionize@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "remark-sectionize@npm:1.1.1"
-  dependencies:
-    unist-util-find-after: ^2.0.2
-    unist-util-visit-parents: ^2.0.1
-  checksum: c77fdc96083b3222dfb50e7928bfff1c89a5450696de0029e0abc999b3ec2399a6d9ade88c6759080cdcae7772061d38c992fc637ba6690043ed248e9f7114ae
   languageName: node
   linkType: hard
 
@@ -17707,26 +17696,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unist-util-find-after@npm:^2.0.2":
-  version: 2.0.4
-  resolution: "unist-util-find-after@npm:2.0.4"
-  dependencies:
-    unist-util-is: ^3.0.0
-  checksum: c1ad697842b3b499a047dde5cdcc40dfdde115d74299c7836b679bd080a59ceb9e879d9149d731f1487b5bc2bdd15aec2252cf8a8eaf26e5260d59eb1bb53ca8
-  languageName: node
-  linkType: hard
-
 "unist-util-generated@npm:^2.0.0":
   version: 2.0.0
   resolution: "unist-util-generated@npm:2.0.0"
   checksum: 3a806793fa24a75190c217740ce706340d6cb0d51eff677134253d628f8e4355ebd8a243fe8045c583463f6bebfd50f902d653161da87c1359fcd1a14b99c8e0
-  languageName: node
-  linkType: hard
-
-"unist-util-is@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "unist-util-is@npm:3.0.0"
-  checksum: d24a5dd80c670f763b2ae608651cf062317456aa81be51f66f45cbd7d440a2ab18356e4f48aeac6b5e3d391c69d3c3452ade5fe5aa9574bec4a2de0b10122ed5
   languageName: node
   linkType: hard
 
@@ -17769,15 +17742,6 @@ __metadata:
   dependencies:
     "@types/unist": ^2.0.0
   checksum: 460d5e16065942da7acd2578e92f4b8421c5af1f3f15ebc858db90865be69a5454dd6638d73f855cc82b1fa9e6e941a258f97b3f5f3be4f2766b0e6f6c45a031
-  languageName: node
-  linkType: hard
-
-"unist-util-visit-parents@npm:^2.0.1":
-  version: 2.1.2
-  resolution: "unist-util-visit-parents@npm:2.1.2"
-  dependencies:
-    unist-util-is: ^3.0.0
-  checksum: 048edbb590a8c4bc0043eec9f50d3fe76faa58f1ac663a7e6dee5e895ddd0ce8bc52f2cfe2e633849fa93671e8de021070667acb1518e3d40220768c7f70a3d3
   languageName: node
   linkType: hard
 
