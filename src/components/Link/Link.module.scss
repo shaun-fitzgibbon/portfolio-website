@@ -1,0 +1,8 @@
+.Link {
+  color: hsl(338deg 79% 64%);
+
+  &:hover,
+  &:focus {
+    color: hsl(338deg 52% 58%);
+  }
+}
