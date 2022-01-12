@@ -1,0 +1,73 @@
+.Footer {
+  display: flex;
+  height: fit-content;
+  flex: 1;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  padding-top: 50px;
+  border-top: 1px solid hsl(0, 0%, 92%);
+  background-color: hsl(212, 46%, 11%);
+  clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 100%);
+  color: hsl(0, 0%, 100%);
+}
+
+.TopContent {
+  padding: 20px 0;
+}
+
+.MiddleContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+
+  .Column {
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .ColumnHeader {
+    display: block;
+    text-align: center;
+  }
+}
+
+.BottomWrapper {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: right;
+  border-top: 1px solid hsl(213deg 46% 14%);
+  background-color: hsl(213deg 48% 9%);
+  font-size: 12px;
+}
+
+.BottomContent {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  color: hsl(0, 1%, 72%);
+}
+
+@media screen and (min-width: 600px) {
+  .MiddleContent {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+
+    .Column {
+      width: calc(100% / 3);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .Footer {
+    padding-top: 50px;
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+  }
+}
