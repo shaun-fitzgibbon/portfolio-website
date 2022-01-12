@@ -1,6 +1,9 @@
+import { Skill } from '../skills/skills'
+
 export interface Project {
   id: number
   title: string
+  technologies?: Skill[]
   description: string
   imageUrl: string
   website: {
@@ -17,9 +20,19 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'George Lucas - Tribute Page',
+    technologies: [
+      {
+        id: 1,
+        name: 'HTML5',
+      },
+      {
+        id: 2,
+        name: 'CSS3',
+      },
+    ],
     description:
       'A tribute page designed and built for freecodecamp project. I chose to do this on George Lucas as I am a huge fan of the Star wars movies.',
-    imageUrl: '/images/projects/george-lucas.png',
+    imageUrl: '/static/images/projects/george-lucas.png',
     website: {
       name: 'website',
       url: 'https://codepen.io/sfitzg/full/PopPeeb',
@@ -32,9 +45,16 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'Business - Survey Form',
+    technologies: [
+      {
+        id: 1,
+        name: 'HTML5',
+      },
+      { id: 2, name: 'CSS3' },
+    ],
     description:
       'A basic survey form designed using figma and coded using html & css for freecodecamp project',
-    imageUrl: '/images/projects/survey-form.png',
+    imageUrl: '/static/images/projects/survey-form.png',
     website: {
       name: 'website',
       url: 'http://codepen.io/sfitzg/full/oNeLMNz',
@@ -47,8 +67,16 @@ export const projects: Project[] = [
   {
     id: 3,
     title: 'George Lucas - Tribute Page',
+    technologies: [
+      {
+        id: 1,
+        name: 'HTML5',
+      },
+      { id: 2, name: 'CSS3' },
+      { id: 2, name: 'dddd' },
+    ],
     description: '',
-    imageUrl: '/images/projects/george-lucas.png',
+    imageUrl: '/static/images/projects/george-lucas.png',
     website: {
       name: 'website',
       url: 'https://github.com/eddiejaoude',
