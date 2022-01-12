@@ -1,0 +1,9 @@
+.FormInput {
+  padding: 10px;
+  border: unset;
+  outline: unset;
+}
+
+.FormInput:focus {
+  outline: 2px solid rgb(236 89 144);
+}
