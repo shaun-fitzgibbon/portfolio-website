@@ -6,8 +6,6 @@
   ],
   "extends": [
     "stylelint-config-sass-guidelines",
-    "stylelint-config-css-modules",
-    "stylelint-config-idiomatic-order",
     "stylelint-a11y/recommended",
     "stylelint-config-prettier"
   ],
