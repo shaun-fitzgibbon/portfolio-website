@@ -1,6 +1,6 @@
 .Wrapper {
-  width: 2px;
+  background-color: hsla(var(--palette-gray-20), 0.3);
   height: calc(88vh - 40px);
   max-height: 425px;
-  background-color: hsla(var(--palette-gray-20), 0.3);
+  width: 2px;
 }

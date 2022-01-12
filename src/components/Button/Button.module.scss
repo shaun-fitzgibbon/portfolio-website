@@ -1,13 +1,13 @@
 .Button {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
+  background-color: hsl(338deg 79% 64%);
 
   // width: 100%;
   border: unset;
-  background-color: hsl(338deg 79% 64%);
   color: hsl(0, 0%, 100%);
+  display: inline-block;
   outline: none;
+  overflow: hidden;
+  position: relative;
   transition: background-color 0.3s ease-in-out;
 
   &:hover,
@@ -30,21 +30,21 @@
 }
 
 .ButtonSmall {
-  padding: 5px 10px;
   border-radius: 5px;
   font-size: small;
+  padding: 5px 10px;
 }
 
 .ButtonMedium {
-  padding: 10px 15px;
   border-radius: 5px;
   font-size: medium;
+  padding: 10px 15px;
 }
 
 .ButtonLarge {
-  padding: 15px 20px;
   border-radius: 5px;
   font-size: larger;
+  padding: 15px 20px;
 }
 
 .Fullwidth {
@@ -56,11 +56,6 @@
   cursor: wait;
 
   &::before {
-    position: absolute;
-    top: 0;
-    left: -10%;
-    width: 150%;
-    height: 100%;
     animation: loading-animation 1s infinite linear;
     background: hsl(338deg 52% 58%)
       repeating-linear-gradient(
@@ -71,6 +66,11 @@
         rgb(230, 129, 166) 20px
       );
     content: '';
+    height: 100%;
+    left: -10%;
+    position: absolute;
+    top: 0;
+    width: 150%;
   }
   @media screen and (prefers-reduced-motion: reduce) {
     &::before {
