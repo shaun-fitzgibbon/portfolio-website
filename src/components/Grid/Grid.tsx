@@ -1,12 +1,26 @@
 import { ReactNode } from 'react'
-import styles from './Grid.module.scss'
+import styled from 'styled-components'
 
-type GridProps = {
+interface GridProps {
   children: ReactNode
 }
 
+const StyledGrid = styled.div`
+  display: grid;
+  max-width: 100%;
+  gap: 1.2rem;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`
+
 const Grid = function ({ children }: GridProps) {
-  return <div className={styles.Grid}>{children}</div>
+  return <StyledGrid>{children}</StyledGrid>
 }
 
 export default Grid
