@@ -1,9 +1,9 @@
-import { Skill } from '../skills/skills'
+import { Skill } from 'data/skills'
 
 export interface Project {
   id: number
   title: string
-  technologies?: Skill[]
+  technologies?: Pick<Skill, 'id' | 'name'>[]
   description: string
   imageUrl: string
   website: {
@@ -73,7 +73,7 @@ export const projects: Project[] = [
         name: 'HTML5',
       },
       { id: 2, name: 'CSS3' },
-      { id: 2, name: 'dddd' },
+      { id: 3, name: 'dddd' },
     ],
     description: '',
     imageUrl: '/static/images/projects/george-lucas.png',
