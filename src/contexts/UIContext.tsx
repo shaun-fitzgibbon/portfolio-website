@@ -151,7 +151,7 @@ export const UIProvider: FC = ({ children }, ...rest) => {
 
     if (
       (prevScrollPosition > currentScrollPosition &&
-        prevScrollPosition - currentScrollPosition > 70) ||
+        prevScrollPosition - currentScrollPosition > 10) ||
       currentScrollPosition < 600
     ) {
       dispatch({ type: 'SHOW_NAVBAR' })
