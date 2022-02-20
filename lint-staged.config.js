@@ -13,16 +13,18 @@ const removeIgnoredFiles = async (filenames) => {
 
 module.exports = {
   // Type check TypeScript files
-  '**/*.ts?(x)': () => 'tsc --project tsconfig.json --pretty --noEmit',
+  '**/*.ts?(x)': 'tsc-files --project tsconfig.json --pretty --noEmit',
 
   // Lint TypeScript and JavaScript files
-  '**/*.(ts|tsx|js|jsx)': async (filesnames) => {
+  '**/*.ts?(x)|js?(x)|md?(x)': async (filesnames) => {
     const filesToLint = await removeIgnoredFiles(filesnames)
     return [`eslint --max-warnings=0 --fix ${filesToLint}`]
   },
 
-  // Lint Css and Sass
-  '**/*.(css|scss)': (filenames) => [`stylelint --fix ${filenames.join(' ')}`],
+  // Lint Styled Components and Markdown Files
+  '**/*.ts?(x)|js?(x)|md?(x)': (filenames) => [
+    `stylelint --fix ${filenames.join(' ')}`,
+  ],
 
   // Format any files PRETTIER supports
   '*': 'prettier --ignore-unknown --write',
