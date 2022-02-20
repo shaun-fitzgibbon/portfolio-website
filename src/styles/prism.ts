@@ -1,75 +1,9 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+import { createGlobalStyle } from 'styled-components'
 
-html,
-body {
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
-  background-color: rgb(246 249 252);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-}
+export default createGlobalStyle`
+   /* STYLES FOR CODEBLOCKS */
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
 
-::-webkit-scrollbar-thumb {
-  background: rgb(9 9 9 / 50%);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgb(0 0 0 / 20%);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  display: inline-block;
-  padding: 0.05px;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-input,
-textarea {
-  display: block;
-  width: 100%;
-  padding: 5px;
-  margin: 10px 0;
-  border-radius: 5px;
-}
-
-// STYLES FOR CODEBLOCKS
-
-pre {
-  overflow-x: auto;
-}
 
 /**
  * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
@@ -123,8 +57,8 @@ pre {
  * Ported for PrismJS by Albert Vallverdu [@byverdu]
  */
 
-code[class*='language-'],
-pre[class*='language-'] {
+code,
+pre {
   background: none;
   color: hsl(60deg 30% 96%);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -140,20 +74,21 @@ pre[class*='language-'] {
 }
 
 /* Code blocks */
-pre[class*='language-'] {
+pre {
   overflow: auto;
   padding: 1em;
   margin: 0.5em 0;
   border-radius: 0.3em;
+  overflow-x: auto;
 }
 
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
+:not(pre) > code,
+pre {
   background: hsl(231deg 15% 18%);
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
+:not(pre) > code {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
@@ -233,3 +168,4 @@ pre[class*='language-'] {
 .token.entity {
   cursor: help;
 }
+`
