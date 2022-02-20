@@ -1,9 +1,9 @@
 ---
-name: Tails Azimuth
+name: Shaun Fitzgibbon
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
+occupation: Frontend react developer
+company: Fitz Industries
+email: shaun@fitzindustries.com
 twitter: https://twitter.com/Twitter
 linkedin: https://www.linkedin.com
 github: https://github.com
